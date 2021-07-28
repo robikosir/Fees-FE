@@ -1,24 +1,15 @@
-# fees
+GUYSSSS:
 
-## Project setup
+First download Node.js
+
+Type following command into console (make sure you are in the right directory /fees)
+
+This command installs requirements needed for this project (client side validation, etc.)
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+This command runs local server, where you can see what you are doing on the frontend
 ```
-yarn serve
+yarn run serve
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
