@@ -42,7 +42,7 @@
 
 <script>
 import BaseInput from "@/components/inputs/BaseInput";
-import { constants } from "../../assets/constants/constants";
+import { constants } from "@/assets/constants/constants";
 
 export default {
   name: "PasswordInput",

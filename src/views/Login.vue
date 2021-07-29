@@ -22,7 +22,7 @@
 <script>
 import login from "@/mixins/auth/login";
 import EmailInput from "@/components/inputs/EmailInput";
-import PasswordInput from "../components/inputs/PasswordInput";
+import PasswordInput from "@/components/inputs/PasswordInput";
 
 export default {
   name: "Login",
