@@ -1,6 +1,9 @@
 GUYSSSS:
+Install git
 
-First download Node.js
+Download repository (using git clone)
+
+download Node.js
 
 Type following command into console (make sure you are in the right directory /fees)
 
