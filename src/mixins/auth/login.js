@@ -1,6 +1,8 @@
 import { email, minLength, required } from "vuelidate/lib/validators";
+import validation from "@/mixins/validation";
 
 export default {
+  mixins: [validation],
   data() {
     return {
       form: {
