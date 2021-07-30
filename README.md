@@ -5,7 +5,10 @@ Download repository (using git clone)
 
 download Node.js
 
-Type following command into console (make sure you are in the right directory /fees)
+Type following commands into console (make sure you are in the right directory /fees)
+```
+npm install --global yarn
+```
 
 This command installs requirements needed for this project (client side validation, etc.)
 ```
