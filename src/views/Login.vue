@@ -2,7 +2,7 @@
   <CenterLayout>
     <template v-slot:content>
       <b-row>
-        <b-col cols="12">
+        <b-col align="left" cols="12">
           <EmailInput
             id="email"
             :field="$v.form.email"
@@ -19,6 +19,7 @@
             label="Password"
             field-name="password"
           />
+          <b-button pill class="login" @click="next()">Login</b-button>
         </b-col>
       </b-row>
     </template>
