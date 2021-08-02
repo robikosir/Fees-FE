@@ -11,5 +11,6 @@ export default {
   },
   getters: {
     accessToken: (state) => state.accessToken,
+    isAuthenticated: (state) => !!state.accessToken,
   },
 };
