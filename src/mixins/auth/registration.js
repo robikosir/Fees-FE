@@ -1,4 +1,4 @@
-import { email, minLength, required } from "vuelidate/lib/validators";
+import { email, minLength, required, sameAs } from "vuelidate/lib/validators";
 import validation from "@/mixins/validation";
 
 export default {
@@ -6,20 +6,20 @@ export default {
   data() {
     return {
       form: {
-        firstname: "",
-        lastname: "",
+        firstName: "",
+        lastName: "",
         email: "",
         password: "",
-        repeatpassword: "",
+        repeatPassword: "",
       },
     };
   },
   validations: {
     form: {
-      firstname: {
+      firstName: {
         required,
       },
-      lastname: {
+      lastName: {
         required,
       },
       email: {
@@ -30,17 +30,13 @@ export default {
         required,
         minLength: minLength(7),
       },
-      repeatpassword: {
+      repeatPassword: {
         required,
-        minLength: minLength(7),
+        sameAsPassword: sameAs("password"),
       },
     },
   },
   methods: {
-    login() {
-      // TODO store auth token form the response to the store
-      this.$router.push("/");
-    },
     register() {},
   },
 };
