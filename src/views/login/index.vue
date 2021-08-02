@@ -2,7 +2,7 @@
   <CenterLayout>
     <template v-slot:content>
       <b-row>
-        <b-col align="left" cols="12">
+        <b-col cols="12">
           <EmailInput
             id="email"
             :field="$v.form.email"
@@ -43,7 +43,9 @@ export default {
       error: "",
     };
   },
-  methods: {},
+  methods: {
+    next() {},
+  },
 };
 </script>
 

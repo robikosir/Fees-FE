@@ -1,5 +1,5 @@
 <template>
-  <b-form-group class="custom-input text-left">
+  <b-form-group class="text-start">
     <label class="font-label" :for="id">{{ label }}</label>
     <b-form-input
       :id="id"
