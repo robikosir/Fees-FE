@@ -28,7 +28,7 @@
 
 <script>
 import BaseInput from "@/components/inputs/BaseInput";
-import { constants } from "@/services/common/constants";
+import { constants } from "@/assets/constants/constants";
 export default {
   name: "StringInput",
   components: { BaseInput },

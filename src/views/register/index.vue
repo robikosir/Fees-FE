@@ -62,7 +62,18 @@ export default {
   components: { CenterLayout, PasswordInput, EmailInput, StringInput },
   mixins: [registration],
   methods: {
-    next() {},
+    next() {
+      console.log("next!");
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        this.submitStatus = "ERROR";
+      } else {
+        this.submitStatus = "PENDING";
+        setTimeout(() => {
+          this.submitStatus = "OK";
+        }, 500);
+      }
+    },
   },
 };
 </script>
