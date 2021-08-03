@@ -9,7 +9,7 @@
             :state="validateState($v.form, 'firstName')"
             @update="$v.form.firstName.$model = $event"
             label="First name"
-            field-name="firstName"
+            field-name="first name"
           />
           <StringInput
             id="lastName"
@@ -17,7 +17,7 @@
             :state="validateState($v.form, 'lastName')"
             @update="$v.form.lastName.$model = $event"
             label="Last name"
-            field-name="lastName"
+            field-name="last name"
           />
           <EmailInput
             id="email"
@@ -41,7 +41,7 @@
             :state="validateState($v.form, 'repeatPassword')"
             @update="$v.form.repeatPassword.$model = $event"
             label="Repeat paswword"
-            field-name="repeatPassword"
+            field-name="repeat password"
           />
           <b-button pill class="register" @click="next()">Register</b-button>
         </b-col>
@@ -61,13 +61,6 @@ export default {
   name: "Registration",
   components: { CenterLayout, PasswordInput, EmailInput, StringInput },
   mixins: [registration],
-  data() {
-    return {
-      username: "",
-      password: "",
-      error: "",
-    };
-  },
   methods: {
     next() {},
   },
