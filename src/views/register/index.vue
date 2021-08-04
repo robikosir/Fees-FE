@@ -67,11 +67,6 @@ export default {
       this.$v.$touch();
       if (this.$v.$invalid) {
         this.submitStatus = "ERROR";
-      } else {
-        this.submitStatus = "PENDING";
-        setTimeout(() => {
-          this.submitStatus = "OK";
-        }, 500);
       }
     },
   },
