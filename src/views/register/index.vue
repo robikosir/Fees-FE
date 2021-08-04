@@ -3,7 +3,6 @@
     <template v-slot:content>
       <b-row>
         <b-col cols="12">
-          {{ form }}
           <StringInput
             id="firstName"
             :field="$v.form.firstName"
