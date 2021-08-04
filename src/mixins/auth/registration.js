@@ -1,5 +1,6 @@
 import { email, minLength, required, sameAs } from "vuelidate/lib/validators";
 import validation from "@/mixins/validation";
+import client from "@/client/client";
 
 export default {
   mixins: [validation],
@@ -37,6 +38,18 @@ export default {
     },
   },
   methods: {
-    register() {},
+    register() {
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        client
+          .post("/users/", this.form)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    },
   },
 };

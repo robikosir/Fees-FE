@@ -3,6 +3,7 @@
     <template v-slot:content>
       <b-row>
         <b-col cols="12">
+          {{ form }}
           <StringInput
             id="firstName"
             :field="$v.form.firstName"
@@ -43,7 +44,9 @@
             label="Repeat paswword"
             field-name="repeat password"
           />
-          <b-button pill class="register" @click="next()">Register</b-button>
+          <b-button pill class="register" @click="register()"
+            >Register</b-button
+          >
         </b-col>
       </b-row>
     </template>
@@ -61,15 +64,6 @@ export default {
   name: "Registration",
   components: { CenterLayout, PasswordInput, EmailInput, StringInput },
   mixins: [registration],
-  methods: {
-    next() {
-      console.log("next!");
-      this.$v.$touch();
-      if (this.$v.$invalid) {
-        this.submitStatus = "ERROR";
-      }
-    },
-  },
 };
 </script>
 
