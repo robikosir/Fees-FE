@@ -24,9 +24,13 @@ export default {
     },
   },
   methods: {
-    login() {
+    async login() {
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        console.log("Successful login");
+        this.$router.push("/");
+      }
       // TODO store auth token form the response to the store
-      this.$router.push("/");
     },
   },
 };

@@ -19,7 +19,7 @@
             label="Password"
             field-name="password"
           />
-          <b-button pill class="login" @click="next()">Login</b-button>
+          <b-button pill class="login" @click="login()">Login</b-button>
         </b-col>
       </b-row>
     </template>
@@ -43,9 +43,7 @@ export default {
       error: "",
     };
   },
-  methods: {
-    next() {},
-  },
+  methods: {},
 };
 </script>
 
