@@ -9,6 +9,7 @@
             :state="validateState($v.form, 'firstName')"
             :server-errors="serverErrors['fist_name']"
             @update="$v.form.firstName.$model = $event"
+            @keyupEnter="register"
             label="First name"
             field-name="first name"
           />
@@ -18,6 +19,7 @@
             :state="validateState($v.form, 'lastName')"
             :server-errors="serverErrors['last_name']"
             @update="$v.form.lastName.$model = $event"
+            @keyupEnter="register"
             label="Last name"
             field-name="last name"
           />
@@ -27,6 +29,7 @@
             :state="validateState($v.form, 'email')"
             :server-errors="serverErrors['email']"
             @update="$v.form.email.$model = $event"
+            @keyupEnter="register"
             label="Email"
             field-name="email"
           />
@@ -36,6 +39,7 @@
             :state="validateState($v.form, 'password')"
             :server-errors="serverErrors['password']"
             @update="$v.form.password.$model = $event"
+            @keyupEnter="register"
             label="Password"
             field-name="password"
           />
@@ -44,6 +48,7 @@
             :field="$v.form.repeatPassword"
             :state="validateState($v.form, 'repeatPassword')"
             @update="$v.form.repeatPassword.$model = $event"
+            @keyupEnter="register"
             label="Repeat paswword"
             field-name="repeat password"
           />
