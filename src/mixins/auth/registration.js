@@ -47,8 +47,13 @@ export default {
           email: this.form.email,
           password: this.form.password,
         };
-        let response = await users.registerUser(data);
-        console.log(response);
+        try {
+          // check if response is OK
+          await users.registerUser(data);
+        } catch (e) {
+          this.serverErrors = e.response.data;
+          this.$v.$touch();
+        }
       }
     },
   },
