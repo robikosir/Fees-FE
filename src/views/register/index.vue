@@ -1,62 +1,73 @@
 <template>
   <CenterLayout>
     <template v-slot:content>
-      <b-row>
-        <b-col cols="12">
-          <StringInput
-            id="firstName"
-            :field="$v.form.firstName"
-            :state="validateState($v.form, 'firstName')"
-            :server-errors="serverErrors['fist_name']"
-            @update="$v.form.firstName.$model = $event"
-            @keyupEnter="register"
-            label="First name"
-            field-name="first name"
-          />
-          <StringInput
-            id="lastName"
-            :field="$v.form.lastName"
-            :state="validateState($v.form, 'lastName')"
-            :server-errors="serverErrors['last_name']"
-            @update="$v.form.lastName.$model = $event"
-            @keyupEnter="register"
-            label="Last name"
-            field-name="last name"
-          />
-          <EmailInput
-            id="email"
-            :field="$v.form.email"
-            :state="validateState($v.form, 'email')"
-            :server-errors="serverErrors['email']"
-            @update="$v.form.email.$model = $event"
-            @keyupEnter="register"
-            label="Email"
-            field-name="email"
-          />
-          <PasswordInput
-            id="password"
-            :field="$v.form.password"
-            :state="validateState($v.form, 'password')"
-            :server-errors="serverErrors['password']"
-            @update="$v.form.password.$model = $event"
-            @keyupEnter="register"
-            label="Password"
-            field-name="password"
-          />
-          <PasswordInput
-            id="repeatPassword"
-            :field="$v.form.repeatPassword"
-            :state="validateState($v.form, 'repeatPassword')"
-            @update="$v.form.repeatPassword.$model = $event"
-            @keyupEnter="register"
-            label="Repeat paswword"
-            field-name="repeat password"
-          />
-          <b-button pill class="register" @click="register()"
-            >Register</b-button
-          >
-        </b-col>
-      </b-row>
+      <b-card class="text-center">
+        <h1><b>Register</b></h1>
+        <b-row>
+          <b-col cols="12">
+            <StringInput
+              id="firstName"
+              :field="$v.form.firstName"
+              :state="validateState($v.form, 'firstName')"
+              :server-errors="serverErrors['fist_name']"
+              icon="person-fill"
+              @update="$v.form.firstName.$model = $event"
+              @keyupEnter="register"
+              label="First name"
+              field-name="first name"
+            />
+            <StringInput
+              id="lastName"
+              :field="$v.form.lastName"
+              :state="validateState($v.form, 'lastName')"
+              :server-errors="serverErrors['last_name']"
+              icon="person-fill"
+              @update="$v.form.lastName.$model = $event"
+              @keyupEnter="register"
+              label="Last name"
+              field-name="last name"
+            />
+            <EmailInput
+              id="email"
+              :field="$v.form.email"
+              :state="validateState($v.form, 'email')"
+              :server-errors="serverErrors['email']"
+              icon="envelope-fill"
+              @update="$v.form.email.$model = $event"
+              @keyupEnter="register"
+              label="Email"
+              field-name="email"
+            />
+            <PasswordInput
+              id="password"
+              :field="$v.form.password"
+              :state="validateState($v.form, 'password')"
+              :server-errors="serverErrors['password']"
+              icon="lock-fill"
+              @update="$v.form.password.$model = $event"
+              @keyupEnter="register"
+              label="Password"
+              field-name="password"
+            />
+            <PasswordInput
+              id="repeatPassword"
+              :field="$v.form.repeatPassword"
+              :state="validateState($v.form, 'repeatPassword')"
+              icon="arrow-counterclockwise"
+              @update="$v.form.repeatPassword.$model = $event"
+              @keyupEnter="register"
+              label="Repeat password"
+              field-name="repeat password"
+            />
+            <b-button
+              variant="primary"
+              class="register float-left"
+              @click="register()"
+              >Register</b-button
+            >
+          </b-col>
+        </b-row>
+      </b-card>
     </template>
   </CenterLayout>
 </template>

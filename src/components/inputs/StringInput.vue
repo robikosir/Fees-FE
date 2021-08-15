@@ -5,6 +5,7 @@
     :field="field"
     :label="label"
     :ref="id"
+    :icon="icon"
     :placeHolder="placeHolder"
     @update="$emit('update', $event)"
     @keyupEnter="$emit('keyupEnter')"
@@ -36,6 +37,7 @@ export default {
     id: { type: String, required: true },
     fieldName: { type: String, required: true },
     serverErrors: { type: Array, default: () => [] },
+    icon: { type: String },
     field: { type: Object },
     state: { type: [Boolean] },
     placeHolder: { type: String },

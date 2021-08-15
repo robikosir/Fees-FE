@@ -5,6 +5,7 @@
     :state="state"
     :label="label"
     :ref="id"
+    :icon="icon"
     @update="$emit('update', $event)"
     @keyupEnter="$emit('keyupEnter')"
     type="email"
@@ -42,6 +43,7 @@ export default {
     label: { type: String, required: true },
     field: { type: Object, required: true },
     fieldName: { type: String, required: true },
+    icon: { type: String },
     serverErrors: { type: Array, default: () => [] },
     state: { type: [Boolean] },
   },

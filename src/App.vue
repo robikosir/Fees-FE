@@ -1,6 +1,9 @@
 <template>
   <div class="h-100">
-    <router-view />
+    <Navbar />
+    <div class="container-fluid h-100">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -11,3 +14,9 @@ body {
   overflow-x: hidden;
 }
 </style>
+<script>
+import Navbar from "@/components/Navbar";
+export default {
+  components: { Navbar },
+};
+</script>
