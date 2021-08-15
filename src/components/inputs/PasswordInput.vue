@@ -1,7 +1,7 @@
 <template>
   <div>
     <BaseInput
-      id="password"
+      :id="id"
       :field="field"
       :state="state"
       :label="label"
