@@ -9,8 +9,10 @@
               id="email"
               :field="$v.form.email"
               :state="validateState($v.form, 'email')"
+              :server-errors="serverErrors['email']"
               icon="person-fill"
               @update="$v.form.email.$model = $event"
+              @keyupEnter="submit"
               label="Email"
               field-name="email"
             />
@@ -18,15 +20,14 @@
               id="password"
               :field="$v.form.password"
               :state="validateState($v.form, 'password')"
+              :server-errors="serverErrors['password']"
               icon="lock-fill"
               @update="$v.form.password.$model = $event"
+              @keyupEnter="submit"
               label="Password"
               field-name="password"
             />
-            <b-button
-              variant="primary"
-              class="login float-left"
-              @click="login()"
+            <b-button variant="primary" class="login float-left" @click="submit"
               >Login</b-button
             >
           </b-col>
@@ -46,14 +47,6 @@ export default {
   name: "Login",
   components: { CenterLayout, PasswordInput, EmailInput },
   mixins: [login],
-  data() {
-    return {
-      username: "",
-      password: "",
-      error: "",
-    };
-  },
-  methods: {},
 };
 </script>
 

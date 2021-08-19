@@ -7,10 +7,7 @@
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav v-if="isAuthenticated()">
-        <b-nav-item href="#">Your team</b-nav-item>
-        <b-nav-item href="#">Standings</b-nav-item>
-        <b-nav-item href="#">Player's prices</b-nav-item>
-        <b-nav-item href="#">Next matches</b-nav-item>
+        <b-nav-item href="#">Your teams</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -18,9 +15,9 @@
         <b-nav-item-dropdown right>
           <!-- Using 'button-content' slot -->
           <template #button-content>
-            {{ username() }}
+            {{ $store.state.auth.user.first_name }}
           </template>
-          <b-dropdown-item @click="logout">Log Out</b-dropdown-item>
+          <b-dropdown-item @click="logoutClicked">Log Out</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
       <b-navbar-nav v-else class="ml-auto">
@@ -34,12 +31,17 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Navbar",
   methods: {
     ...mapGetters("auth", ["isAuthenticated"]),
+    ...mapActions("auth", ["logout"]),
+    logoutClicked() {
+      this.logout();
+      this.$router.push("/login");
+    },
   },
 };
 </script>

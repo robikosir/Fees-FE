@@ -1,5 +1,6 @@
 import { email, minLength, required } from "vuelidate/lib/validators";
 import validation from "@/mixins/validation";
+import { mapActions } from "vuex";
 
 export default {
   mixins: [validation],
@@ -24,13 +25,20 @@ export default {
     },
   },
   methods: {
-    async login() {
+    ...mapActions("auth", ["login"]),
+    async submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        console.log("Successful login");
-        this.$router.push("/");
+        try {
+          await this.login([this.form.email, this.form.password]);
+          this.$router.push("/");
+        } catch (e) {
+          this.serverErrors = e.response.data;
+          if (this.serverErrors.non_field_errors) {
+            this.serverErrors["email"] = this.serverErrors.non_field_errors;
+          }
+        }
       }
-      // TODO store auth token form the response to the store
     },
   },
 };

@@ -6,8 +6,8 @@
         d-flex
         flex-column
         text-lg-left text-center
-        pl-5
-        pr-5
+        pl-2
+        pr-2
         pl-md-0
         pr-md-0
       "

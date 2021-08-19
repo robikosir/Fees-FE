@@ -6,4 +6,7 @@ export const users = {
   registerUser(data) {
     return client.post(route, data);
   },
+  getSelf() {
+    return client.get(`${route}get_self/`);
+  },
 };
