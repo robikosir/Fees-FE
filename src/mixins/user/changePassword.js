@@ -44,7 +44,7 @@ export default {
             new_password: "",
             new_password_repeat: "",
           };
-          this.$v.$reset();
+          this.$router.push("/");
         } catch (e) {
           this.serverErrors = e.response.data;
           this.$v.$touch();
