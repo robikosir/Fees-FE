@@ -71,7 +71,7 @@
 import registration from "@/mixins/auth/registration";
 import EmailInput from "@/components/inputs/EmailInput";
 import PasswordInput from "@/components/inputs/PasswordInput";
-import CenterLayout from "../../../layout/CenterLayout";
+import CenterLayout from "../../components/layouts/CenterLayout";
 import StringInput from "../../components/inputs/StringInput.vue";
 import SubmitButton from "@/components/buttons/SubmitButton";
 

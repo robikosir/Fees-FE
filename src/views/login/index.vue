@@ -39,7 +39,7 @@
 import login from "@/mixins/auth/login";
 import EmailInput from "@/components/inputs/EmailInput";
 import PasswordInput from "@/components/inputs/PasswordInput";
-import CenterLayout from "../../../layout/CenterLayout";
+import CenterLayout from "../../components/layouts/CenterLayout";
 import SubmitButton from "@/components/buttons/SubmitButton";
 
 export default {

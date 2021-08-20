@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import CenterLayout from "../../../layout/CenterLayout";
+import CenterLayout from "../../components/layouts/CenterLayout";
 import PasswordInput from "@/components/inputs/PasswordInput";
 import changePassword from "@/mixins/user/changePassword";
 import ToastBase from "@/components/toasts/ToastBase";

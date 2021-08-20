@@ -3,7 +3,7 @@
     <label class="font-label" :for="id">{{ label }}</label>
     <b-input-group>
       <b-input-group-prepend v-if="icon" is-text>
-        <b-icon :icon="icon"></b-icon>
+        <b-icon :icon="icon" />
       </b-input-group-prepend>
       <b-form-input
         :id="id"

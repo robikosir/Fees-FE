@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import functions from "@/router/helper";
-import user from "@/router/routes/user";
+import users from "@/router/routes/users";
+import teams from "@/router/routes/teams";
 
 Vue.use(VueRouter);
 
@@ -22,7 +23,8 @@ const routes = [
     name: "Register",
     component: () => import("../views/register/index.vue"),
   },
-  ...user.routes,
+  ...users.routes,
+  ...teams.routes,
 ];
 
 const router = new VueRouter({

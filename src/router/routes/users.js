@@ -5,7 +5,7 @@ export default {
     {
       path: "/user/change-password",
       name: "ChangePassword",
-      component: () => import("../../views/user/change-password.vue"),
+      component: () => import("../../views/users/change-password.vue"),
       beforeEnter: functions.ifAuthenticated,
     },
   ],
