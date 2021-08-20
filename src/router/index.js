@@ -1,23 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import { store } from "@/store";
+import functions from "@/router/helper";
+import user from "@/router/routes/user";
 
 Vue.use(VueRouter);
-
-const ifAuthenticated = (to, from, next) => {
-  if (store.getters["auth/isAuthenticated"]) {
-    next();
-    return;
-  }
-  next("/login");
-};
 
 const routes = [
   {
     path: "/",
     name: "Home",
     component: () => import("../views/home/index.vue"),
-    beforeEnter: ifAuthenticated,
+    beforeEnter: functions.ifAuthenticated,
   },
   {
     path: "/login",
@@ -29,6 +22,7 @@ const routes = [
     name: "Register",
     component: () => import("../views/register/index.vue"),
   },
+  ...user.routes,
 ];
 
 const router = new VueRouter({

@@ -18,6 +18,9 @@
             {{ $store.state.auth.user.first_name }}
           </template>
           <b-dropdown-item @click="logoutClicked">Log Out</b-dropdown-item>
+          <b-dropdown-item @click="$router.push('user/change-password')"
+            >Change password</b-dropdown-item
+          >
         </b-nav-item-dropdown>
       </b-navbar-nav>
       <b-navbar-nav v-else class="ml-auto">
