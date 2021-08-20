@@ -27,9 +27,7 @@
               label="Password"
               field-name="password"
             />
-            <b-button variant="primary" class="login float-left" @click="submit"
-              >Login</b-button
-            >
+            <SubmitButton button-text="Login" @submit="submit" />
           </b-col>
         </b-row>
       </b-card>
@@ -42,10 +40,11 @@ import login from "@/mixins/auth/login";
 import EmailInput from "@/components/inputs/EmailInput";
 import PasswordInput from "@/components/inputs/PasswordInput";
 import CenterLayout from "../../../layout/CenterLayout";
+import SubmitButton from "@/components/buttons/SubmitButton";
 
 export default {
   name: "Login",
-  components: { CenterLayout, PasswordInput, EmailInput },
+  components: { SubmitButton, CenterLayout, PasswordInput, EmailInput },
   mixins: [login],
 };
 </script>

@@ -59,12 +59,7 @@
               label="Repeat password"
               field-name="repeat password"
             />
-            <b-button
-              variant="primary"
-              class="register float-left"
-              @click="register()"
-              >Register</b-button
-            >
+            <SubmitButton button-text="Register" @submit="register" />
           </b-col>
         </b-row>
       </b-card>
@@ -78,10 +73,17 @@ import EmailInput from "@/components/inputs/EmailInput";
 import PasswordInput from "@/components/inputs/PasswordInput";
 import CenterLayout from "../../../layout/CenterLayout";
 import StringInput from "../../components/inputs/StringInput.vue";
+import SubmitButton from "@/components/buttons/SubmitButton";
 
 export default {
   name: "Registration",
-  components: { CenterLayout, PasswordInput, EmailInput, StringInput },
+  components: {
+    SubmitButton,
+    CenterLayout,
+    PasswordInput,
+    EmailInput,
+    StringInput,
+  },
   mixins: [registration],
 };
 </script>

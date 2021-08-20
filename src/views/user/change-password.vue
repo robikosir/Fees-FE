@@ -38,12 +38,7 @@
               label="Repeat new password"
               field-name="new password"
             />
-            <b-button
-              variant="primary"
-              class="register float-left"
-              @click="submit"
-              >Register</b-button
-            >
+            <SubmitButton button-text="Change password" @submit="submit" />
           </b-col>
         </b-row>
       </b-card>
@@ -62,9 +57,10 @@ import CenterLayout from "../../../layout/CenterLayout";
 import PasswordInput from "@/components/inputs/PasswordInput";
 import changePassword from "@/mixins/user/changePassword";
 import ToastBase from "@/components/toasts/ToastBase";
+import SubmitButton from "@/components/buttons/SubmitButton";
 export default {
   name: "change-password",
-  components: { ToastBase, PasswordInput, CenterLayout },
+  components: { SubmitButton, ToastBase, PasswordInput, CenterLayout },
   mixins: [changePassword],
 };
 </script>
