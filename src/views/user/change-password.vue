@@ -6,7 +6,7 @@
         <b-row>
           <b-col cols="12">
             <PasswordInput
-              id="password"
+              id="old_password"
               :field="$v.form.old_password"
               :state="validateState($v.form, 'old_password')"
               :server-errors="serverErrors['old_password']"
@@ -17,7 +17,7 @@
               field-name="current password"
             />
             <PasswordInput
-              id="password"
+              id="new_password"
               :field="$v.form.new_password"
               :state="validateState($v.form, 'new_password')"
               :server-errors="serverErrors['new_password']"
@@ -28,7 +28,7 @@
               field-name="new password"
             />
             <PasswordInput
-              id="password"
+              id="new_password_repeat"
               :field="$v.form.new_password_repeat"
               :state="validateState($v.form, 'new_password_repeat')"
               :server-errors="serverErrors['new_password_repeat']"
@@ -47,6 +47,12 @@
           </b-col>
         </b-row>
       </b-card>
+      <ToastBase
+        id="change-password-toast"
+        variant="success"
+        title="Password Changed"
+        message="Your password have been successfully changed!"
+      />
     </template>
   </CenterLayout>
 </template>
@@ -55,9 +61,10 @@
 import CenterLayout from "../../../layout/CenterLayout";
 import PasswordInput from "@/components/inputs/PasswordInput";
 import changePassword from "@/mixins/user/changePassword";
+import ToastBase from "@/components/toasts/ToastBase";
 export default {
   name: "change-password",
-  components: { PasswordInput, CenterLayout },
+  components: { ToastBase, PasswordInput, CenterLayout },
   mixins: [changePassword],
 };
 </script>

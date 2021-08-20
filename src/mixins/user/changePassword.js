@@ -38,6 +38,7 @@ export default {
             new_password: this.form.new_password,
           };
           await users.changePassword(data);
+          this.$bvToast.show("change-password-toast");
           this.form = {
             old_password: "",
             new_password: "",
