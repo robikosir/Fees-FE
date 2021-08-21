@@ -6,4 +6,7 @@ export const teams = {
   getTeams() {
     return client.get(route);
   },
+  getTeam(teamId) {
+    return client.get(`${route}${teamId}`);
+  },
 };
