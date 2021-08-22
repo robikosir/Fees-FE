@@ -4,7 +4,7 @@ export default {
   routes: [
     {
       path: "/teams/create",
-      name: "Team",
+      name: "TeamCreate",
       component: () => import("../../views/teams/create"),
       beforeEnter: functions.ifAuthenticated,
     },

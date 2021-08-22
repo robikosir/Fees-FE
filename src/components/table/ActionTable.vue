@@ -7,7 +7,11 @@
     :cell-templates="['actions']"
     @rowClicked="$emit('rowClicked', $event)"
   >
-    <template #head(actions)>
+    <template
+      #head(actions)
+      class="pull-right"
+      v-if="$store.state.auth.isAdmin"
+    >
       <b-button variant="success" size="sm" @click="$emit('addAction')">
         <b-icon icon="plus" />
       </b-button>

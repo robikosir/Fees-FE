@@ -30,6 +30,15 @@ export default {
     this.loading = true;
     this.teamId = this.$route.params.team_id;
     this.team = await this.getTeam(this.teamId);
+    if (
+      this.team.admins.filter(
+        (admin) => admin.id === this.$store.state.auth.user.id
+      ).length === 1
+    ) {
+      this.$store.commit("auth/updateIsAdmin", true);
+    } else {
+      this.$store.commit("auth/updateIsAdmin", false);
+    }
     this.loading = false;
   },
   methods: {
@@ -39,6 +48,9 @@ export default {
     },
     addPlayer() {
       this.$router.push(`/teams/${this.team.id}/invite`);
+    },
+    addFee() {
+      this.$router.push(`/teams/${this.team.id}/fees/create`);
     },
   },
 };

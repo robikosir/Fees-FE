@@ -6,6 +6,7 @@ export default {
   state: {
     accessToken: localStorage.getItem("accessToken") || null,
     user: JSON.parse(localStorage.getItem("user")) || {},
+    isAdmin: JSON.parse(localStorage.getItem("isAdmin")) || false,
   },
   mutations: {
     updateAccessToken: (state, accessToken) => {
@@ -15,6 +16,10 @@ export default {
     updateUser: (state, user) => {
       localStorage.user = JSON.stringify(user);
       state.user = user;
+    },
+    updateIsAdmin: (state, isAdmin) => {
+      localStorage.isAdmin = JSON.stringify(isAdmin);
+      state.isAdmin = isAdmin;
     },
   },
   getters: {

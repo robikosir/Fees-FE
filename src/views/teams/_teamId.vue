@@ -1,23 +1,21 @@
 <template>
   <MainLayout>
-    <div>{{ team }}</div>
     <b-tabs content-class="mt-3">
-      <b-tab title="Players" active>
+      <b-tab title="Fees" active>
         <ActionTable
           :loading="loading"
-          :players="team.players"
+          :items="team.fees"
           :fields="playerFields"
-          @addPlayer="addPlayer"
+          @addAction="addFee"
+      /></b-tab>
+      <b-tab title="Players">
+        <ActionTable
+          :loading="loading"
+          :items="team.players"
+          :fields="playerFields"
+          @addAction="addPlayer"
         />
       </b-tab>
-      <b-tab title="Fees">
-        <ActionTable
-          :loading="loading"
-          :players="team.fees"
-          :fields="playerFields"
-          @addPlayer="addPlayer"
-      /></b-tab>
-      <b-tab title="Admin panel"><p>I'm the second tab</p></b-tab>
     </b-tabs>
   </MainLayout>
 </template>
