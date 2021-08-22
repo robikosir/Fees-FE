@@ -39,5 +39,8 @@ export default {
     openTeam(team) {
       this.$router.push(`/teams/${team.id}`);
     },
+    createTeam() {
+      this.$router.push("/teams/create");
+    },
   },
 };

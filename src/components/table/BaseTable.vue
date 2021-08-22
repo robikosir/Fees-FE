@@ -7,11 +7,15 @@
     :busy="loading"
     thead-class="table-radius"
     @row-clicked="$emit('rowClicked', $event)"
+    show-empty
   >
     <template #table-busy>
       <div class="text-center text-danger my-2">
         <b-spinner class="align-middle"></b-spinner>
       </div>
+    </template>
+    <template #empty="">
+      <slot name="empty-state" />
     </template>
     <template
       v-for="column in headTemplates"

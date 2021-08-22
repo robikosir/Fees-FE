@@ -8,6 +8,17 @@
       :cell-templates="['actions']"
       @rowClicked="openTeam($event)"
     >
+      <template #empty-state>
+        <div
+          class="d-flex justify-content-center align-items-center"
+          @click="createTeam"
+        >
+          <b-button variant="success" size="sm" class="mr-3">
+            <b-icon icon="plus" />
+          </b-button>
+          <b>Add a team</b>
+        </div>
+      </template>
       <template #head(actions)>
         <b-icon icon="gear" />
       </template>

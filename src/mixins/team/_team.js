@@ -7,6 +7,18 @@ export default {
     return {
       team: {},
       teamId: "",
+      playerFields: [
+        { key: "email", label: "Email" },
+        { key: "first_name", label: "Name" },
+        { key: "last_name", label: "Surname" },
+        { key: "actions" },
+      ],
+      feeFields: [
+        { key: "email", label: "Email" },
+        { key: "first_name", label: "Name" },
+        { key: "last_name", label: "Surname" },
+        { key: "actions" },
+      ],
     };
   },
   watch: {
@@ -24,6 +36,9 @@ export default {
     async getTeam(teamId) {
       let response = await teams.getTeam(teamId);
       return response.data;
+    },
+    addPlayer() {
+      this.$router.push(`/teams/${this.team.id}/invite`);
     },
   },
 };
