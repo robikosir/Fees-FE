@@ -1,4 +1,4 @@
-import { email, minLength, required } from "vuelidate/lib/validators";
+import { email, required } from "vuelidate/lib/validators";
 import validation from "@/mixins/validation";
 import { mapActions } from "vuex";
 
@@ -20,7 +20,6 @@ export default {
       },
       password: {
         required,
-        minLength: minLength(7),
       },
     },
   },
