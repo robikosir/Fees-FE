@@ -14,5 +14,17 @@ export default {
       component: () => import("../../views/teams/_teamId"),
       beforeEnter: functions.ifAuthenticated,
     },
+    {
+      path: "/teams/:team_id/fees/create",
+      name: "Team",
+      component: () => import("../../views/teams/fees/create"),
+      beforeEnter: functions.ifAuthenticated,
+    },
+    {
+      path: "/teams/:team_id/fees/add",
+      name: "Team",
+      component: () => import("../../views/teams/fees/add"),
+      beforeEnter: functions.ifAuthenticated,
+    },
   ],
 };

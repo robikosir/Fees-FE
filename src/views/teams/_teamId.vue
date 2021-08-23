@@ -1,7 +1,7 @@
 <template>
   <MainLayout>
     <b-tabs content-class="mt-3">
-      <b-tab title="Fees" active>
+      <b-tab title="Overview" active>
         <ActionTable
           :loading="loading"
           :items="team.fees"
@@ -16,6 +16,7 @@
           @addAction="addPlayer"
         />
       </b-tab>
+      <b-tab title="Fees"> Test </b-tab>
     </b-tabs>
   </MainLayout>
 </template>

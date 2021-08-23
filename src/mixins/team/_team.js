@@ -50,6 +50,9 @@ export default {
       this.$router.push(`/teams/${this.team.id}/invite`);
     },
     addFee() {
+      this.$router.push(`/teams/${this.team.id}/fees/add`);
+    },
+    createFee() {
       this.$router.push(`/teams/${this.team.id}/fees/create`);
     },
   },
