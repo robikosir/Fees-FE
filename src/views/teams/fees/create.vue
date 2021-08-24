@@ -1,5 +1,5 @@
 <template>
-  <MainLayout> Todo create Fee form </MainLayout>
+  <MainLayout title="Create fee"> Todo create Fee form </MainLayout>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <MainLayout>
+  <MainLayout title="Your teams">
     <BaseTable
       :items="teams"
       :fields="fields"

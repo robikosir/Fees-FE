@@ -1,5 +1,5 @@
 <template>
-  <MainLayout>
+  <MainLayout :title="team.name">
     <b-tabs content-class="mt-3">
       <b-tab title="Overview" active>
         <ActionTable

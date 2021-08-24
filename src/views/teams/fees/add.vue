@@ -1,5 +1,5 @@
 <template>
-  <MainLayout>
+  <MainLayout title="Add Fee to player">
     <div>
       <label class="label">Select player(s)</label>
       <multiselect
