@@ -1,11 +1,14 @@
 <template>
   <MainLayout title="Your teams">
+    <template #action>
+      <b-button variant="primary">Create team</b-button>
+    </template>
     <BaseTable
       :items="teams"
       :fields="fields"
       :loading="loading"
-      :head-templates="['actions']"
-      :cell-templates="['actions']"
+      :head-templates="['actions', 'team_fees_total']"
+      :cell-templates="['actions', 'team_fees_total']"
       @rowClicked="openTeam($event)"
     >
       <template #empty-state>
@@ -21,6 +24,9 @@
       </template>
       <template #head(actions)>
         <b-icon icon="gear" />
+      </template>
+      <template #cell(team_fees_total)="data">
+        {{ data.item.team_fees_total }} {{ $store.state.team.currency }}
       </template>
       <template #cell(actions)>
         <b-button variant="primary" size="sm">

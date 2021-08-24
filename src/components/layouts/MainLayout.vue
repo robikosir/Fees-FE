@@ -2,7 +2,12 @@
   <b-container>
     <b-row class="mt-3">
       <b-col>
-        <h1 class="mb-4">{{ title }}</h1>
+        <div class="mb-4 d-flex">
+          <h1>{{ title }}</h1>
+          <div class="ml-auto d-flex align-items-center">
+            <slot name="action" />
+          </div>
+        </div>
         <slot />
       </b-col>
     </b-row>

@@ -16,7 +16,7 @@ export default {
           label: "Currency",
         },
         {
-          key: "fees_total",
+          key: "team_fees_total",
           label: "Fees total",
         },
         {
