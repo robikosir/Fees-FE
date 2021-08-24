@@ -23,7 +23,7 @@
           @addAction="addPlayer"
         />
       </b-tab>
-      <b-tab title="Fees"> Test </b-tab>
+      <b-tab title="Fees"> {{ team.team_fees }} </b-tab>
     </b-tabs>
   </MainLayout>
 </template>
