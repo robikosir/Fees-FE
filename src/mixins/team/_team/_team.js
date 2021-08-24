@@ -1,12 +1,11 @@
 import { teams } from "@/api/teams";
-import loading from "@/mixins/common/loading";
+import base from "@/mixins/team/_team/base";
 
 export default {
-  mixins: [loading],
+  mixins: [base],
   data() {
     return {
       team: {},
-      teamId: "",
       playerFields: [
         { key: "email", label: "Email" },
         { key: "first_name", label: "Name" },
@@ -14,22 +13,17 @@ export default {
         { key: "actions" },
       ],
       feeFields: [
-        { key: "email", label: "Email" },
-        { key: "first_name", label: "Name" },
-        { key: "last_name", label: "Surname" },
+        { key: "player.first_name", label: "Name" },
+        { key: "fee.name", label: "Fee" },
+        { key: "fee.price", label: "Cost" },
         { key: "actions" },
       ],
     };
   },
-  watch: {
-    $route(to) {
-      this.teamId = to.params.team_id || "";
-    },
-  },
   async mounted() {
     this.loading = true;
-    this.teamId = this.$route.params.team_id;
     this.team = await this.getTeam(this.teamId);
+    this.$store.commit("team/updateCurrency", this.team.currency);
     if (
       this.team.admins.filter(
         (admin) => admin.id === this.$store.state.auth.user.id

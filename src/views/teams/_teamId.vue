@@ -4,10 +4,17 @@
       <b-tab title="Overview" active>
         <ActionTable
           :loading="loading"
-          :items="team.fees"
-          :fields="playerFields"
+          :items="team.player_fees_team"
+          :fields="feeFields"
+          :cell-templates="['fee.price']"
           @addAction="addFee"
-      /></b-tab>
+        >
+          <template #cell(fee.price)="data">
+            <b>{{ data.item.fee.price }} </b>
+            <small>{{ $store.state.team.currency }}</small>
+          </template>
+        </ActionTable>
+      </b-tab>
       <b-tab title="Players">
         <ActionTable
           :loading="loading"
@@ -22,12 +29,12 @@
 </template>
 
 <script>
-import _team from "@/mixins/team/_team";
+import _team from "@/mixins/team/_team/_team";
 import MainLayout from "@/components/layouts/MainLayout";
 import ActionTable from "@/components/table/ActionTable";
 
 export default {
-  name: "_teamId",
+  name: "team",
   components: { ActionTable, MainLayout },
   mixins: [_team],
 };

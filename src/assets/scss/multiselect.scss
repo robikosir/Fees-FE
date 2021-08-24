@@ -1,0 +1,18 @@
+@import "variables";
+
+.multiselect__option--highlight {
+  background: $fee_secondary;
+  outline: none;
+  color: #fff;
+  &:after {
+    background: $fee_secondary;
+  }
+}
+
+.multiselect__option--selected.multiselect__option--highlight {
+  background: $fee_primary_hover;
+  color: #fff;
+  &:after {
+    background: $fee_primary_hover;
+  }
+}

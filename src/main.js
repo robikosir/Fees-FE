@@ -21,6 +21,7 @@ Vue.use(IconsPlugin);
 
 Vue.component("multiselect", Multiselect);
 import "vue-multiselect/dist/vue-multiselect.min.css";
+import "@/assets/scss/multiselect.scss";
 
 new Vue({
   router,

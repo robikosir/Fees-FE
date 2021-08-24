@@ -60,6 +60,12 @@ $lead-font-size:   1.30rem;
 
 $spacer: 1.5rem;
 
+// APP COLORS
+$fee_primary: #d51223;
+$fee_primary_hover: rgba(213, 18, 35, 0.4);
+$fee_secondary: #0c142c;
+$fee_secondary: rgba(12, 20, 44, 0.4);
+
 // Then import Bootstrap an BootstrapVue SCSS files (order is important)
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 @import 'node_modules/bootstrap-vue/src/index.scss';

@@ -30,3 +30,14 @@ h4 {
     padding: 12px 20px;
   }
 }
+
+.is-invalid {
+  color: #dc3545 !important;
+}
+.is-valid {
+  color: #28a745 !important;
+}
+
+.form-control {
+  box-shadow: none;
+}
