@@ -1,8 +1,8 @@
 import { teams } from "@/api/teams";
-import base from "@/mixins/team/_team/base";
+import baseTeam from "@/mixins/team/_team/baseTeam";
 
 export default {
-  mixins: [base],
+  mixins: [baseTeam],
   data() {
     return {
       team: {},
@@ -16,6 +16,7 @@ export default {
         { key: "player.first_name", label: "Name" },
         { key: "fee.name", label: "Fee" },
         { key: "fee.price", label: "Cost" },
+        { key: "time", label: "Time" },
         { key: "actions" },
       ],
     };

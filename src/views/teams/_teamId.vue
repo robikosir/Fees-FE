@@ -1,5 +1,6 @@
 <template>
   <MainLayout :title="team.name">
+    {{ team.player_fees_team }}
     <b-tabs content-class="mt-3">
       <b-tab title="Overview" active>
         <ActionTable
@@ -8,6 +9,7 @@
           :fields="feeFields"
           :cell-templates="['fee.price']"
           @addAction="addFee"
+          @rowClicked="$router.push(`/teams/${team.id}/fees/${$event.id}`)"
         >
           <template #cell(fee.price)="data">
             <b>{{ data.item.fee.price }} </b>
