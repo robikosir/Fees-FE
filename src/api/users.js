@@ -12,4 +12,7 @@ export const users = {
   getSelf() {
     return client.get(`${route}get_self/`);
   },
+  inviteUser(data) {
+    return client.post(`${route}invite/`, data);
+  },
 };

@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :title="team.name">
+  <MainLayout :loading="loading" :title="team.name ? team.name : ''">
     <b-tabs content-class="mt-3">
       <b-tab title="Overview" active>
         <ActionTable
@@ -38,6 +38,12 @@
       </b-tab>
       <b-tab title="Fees"> {{ team.team_fees }} </b-tab>
     </b-tabs>
+    <ToastBase
+      id="invite-successful"
+      variant="success"
+      title="Person Invited"
+      message="Person has received email and was added to your team!"
+    />
   </MainLayout>
 </template>
 
@@ -45,10 +51,11 @@
 import _team from "@/mixins/team/_team/_team";
 import MainLayout from "@/components/layouts/MainLayout";
 import ActionTable from "@/components/table/ActionTable";
+import ToastBase from "@/components/toasts/ToastBase";
 
 export default {
   name: "team",
-  components: { ActionTable, MainLayout },
+  components: { ToastBase, ActionTable, MainLayout },
   mixins: [_team],
 };
 </script>

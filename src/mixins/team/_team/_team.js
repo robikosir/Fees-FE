@@ -36,6 +36,7 @@ export default {
     } else {
       this.$store.commit("auth/updateIsAdmin", false);
     }
+    this.processToast();
     this.loading = false;
   },
   methods: {
@@ -44,7 +45,7 @@ export default {
       return response.data;
     },
     addPlayer() {
-      this.$router.push(`/teams/${this.team.id}/invite`);
+      this.$router.push(`/teams/${this.team.id}/users/invite`);
     },
     addFee() {
       this.$router.push(`/teams/${this.team.id}/fees/add`);
@@ -65,6 +66,11 @@ export default {
     getTimeFormat(time) {
       let date = new Date(time);
       return moment(date).format("Do MMM YYYY");
+    },
+    processToast() {
+      if (this.$route.query.toast === "invite-successful") {
+        this.$bvToast.show("invite-successful");
+      }
     },
   },
 };

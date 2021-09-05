@@ -9,7 +9,7 @@
               id="firstName"
               :field="$v.form.firstName"
               :state="validateState($v.form, 'firstName')"
-              :server-errors="serverErrors['fist_name']"
+              :server-errors="serverErrors['first_name']"
               icon="person-fill"
               @update="$v.form.firstName.$model = $event"
               @keyupEnter="register"

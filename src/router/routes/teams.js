@@ -11,7 +11,7 @@ export default {
     {
       path: "/teams/:team_id",
       name: "TeamDetail",
-      component: () => import("../../views/teams/_teamId"),
+      component: () => import("../../views/teams/_teamId/index"),
       beforeEnter: functions.ifAuthenticated,
     },
     {
@@ -30,6 +30,12 @@ export default {
       path: "/teams/:team_id/fees/:fee_id",
       name: "TeamFeeDetail",
       component: () => import("../../views/teams/fees/_feeId"),
+      beforeEnter: functions.ifAuthenticated,
+    },
+    {
+      path: "/teams/:team_id/users/invite",
+      name: "TeamUserInvite",
+      component: () => import("../../views/teams/_teamId/users/invite"),
       beforeEnter: functions.ifAuthenticated,
     },
   ],

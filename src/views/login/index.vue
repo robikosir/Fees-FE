@@ -10,7 +10,7 @@
               :field="$v.form.email"
               :state="validateState($v.form, 'email')"
               :server-errors="serverErrors['email']"
-              icon="person-fill"
+              icon="envelope-fill"
               @update="$v.form.email.$model = $event"
               @keyupEnter="submit"
               label="Email"
