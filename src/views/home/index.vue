@@ -1,7 +1,9 @@
 <template>
   <MainLayout title="Your teams">
     <template #action>
-      <b-button variant="primary">Create team</b-button>
+      <b-button @click="$router.push('teams/create')" variant="primary"
+        >Create team</b-button
+      >
     </template>
     <BaseTable
       :items="teams"
@@ -34,6 +36,12 @@
         </b-button>
       </template>
     </BaseTable>
+    <ToastBase
+      id="team-created"
+      variant="success"
+      title="Team was created"
+      message="Your team was created and added to the list."
+    />
   </MainLayout>
 </template>
 
@@ -41,9 +49,10 @@
 import MainLayout from "@/components/layouts/MainLayout";
 import myTeams from "@/mixins/team/myTeams";
 import BaseTable from "@/components/table/BaseTable";
+import ToastBase from "@/components/toasts/ToastBase";
 export default {
   name: "index",
-  components: { BaseTable, MainLayout },
+  components: { ToastBase, BaseTable, MainLayout },
   mixins: [myTeams],
 };
 </script>

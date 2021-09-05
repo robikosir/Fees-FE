@@ -1,41 +1,38 @@
 <template>
-  <div>
-    <b-card class="text-center">
-      <h1><b>Register</b></h1>
-      <b-row>
-        <b-col cols="12">
-          <StringInput
-            id="teamName"
-            :field="$v.form.firstName"
-            :state="validateState($v.form, 'teamName')"
-            :server-errors="serverErrors['team_name']"
-            icon="person-fill"
-            @update="$v.form.firstName.$model = $event"
-            @keyupEnter="register"
-            label="Team Name"
-            field-name="teamName"
-          />
-          <StringInput
-            id="currency"
-            :field="$v.form.lastName"
-            :state="validateState($v.form, 'currency')"
-            :server-errors="serverErrors['currency']"
-            icon="person-fill"
-            @update="$v.form.lastName.$model = $event"
-            @keyupEnter="register"
-            label="Currency"
-            field-name="currency"
-          />
-          <SubmitButton button-text="Create" @submit="create" />
-        </b-col>
-      </b-row>
-    </b-card>
-  </div>
+  <MainLayout title="Create team">
+    <StringInput
+      id="teamName"
+      :field="$v.form.name"
+      :state="validateState($v.form, 'name')"
+      :server-errors="serverErrors['name']"
+      @update="$v.form.name.$model = $event"
+      @keyupEnter="createTeam"
+      label="Team Name"
+      field-name="team name"
+    />
+    <StringInput
+      id="currency"
+      :field="$v.form.currency"
+      :state="validateState($v.form, 'currency')"
+      :server-errors="serverErrors['currency']"
+      @update="$v.form.currency.$model = $event"
+      @keyupEnter="createTeam"
+      label="Currency"
+      field-name="currency"
+    />
+    <SubmitButton button-text="Create" @submit="createTeam" />
+  </MainLayout>
 </template>
 
 <script>
+import StringInput from "@/components/inputs/StringInput";
+import SubmitButton from "@/components/buttons/SubmitButton";
+import createTeam from "@/mixins/team/createTeam";
+import MainLayout from "@/components/layouts/MainLayout";
 export default {
   name: "create",
+  components: { MainLayout, SubmitButton, StringInput },
+  mixins: [createTeam],
 };
 </script>
 

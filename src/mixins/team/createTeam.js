@@ -1,19 +1,20 @@
 import { required } from "vuelidate/lib/validators";
 import validation from "@/mixins/validation";
+import { teams } from "@/api/teams";
 
 export default {
   mixins: [validation],
   data() {
     return {
       form: {
-        teamName: "",
+        name: "",
         currency: "",
       },
     };
   },
   validations: {
     form: {
-      teamName: {
+      name: {
         required,
       },
       currency: {
@@ -22,10 +23,16 @@ export default {
     },
   },
   methods: {
-    async register() {
+    async createTeam() {
       this.$v.$touch();
-      // eslint-disable-next-line no-empty
       if (!this.$v.$invalid) {
+        try {
+          await teams.createTeam(this.form);
+          this.$router.push(`/?toast=team-created`);
+        } catch (e) {
+          this.serverErrors = e.response.data;
+          this.$v.$touch();
+        }
       }
     },
   },

@@ -29,6 +29,7 @@ export default {
   async mounted() {
     this.loading = true;
     this.teams = await this.getMyTeams();
+    this.processToast();
     this.loading = false;
   },
   methods: {
@@ -41,6 +42,11 @@ export default {
     },
     createTeam() {
       this.$router.push("/teams/create");
+    },
+    processToast() {
+      if (this.$route.query.toast === "team-created") {
+        this.$bvToast.show("team-created");
+      }
     },
   },
 };

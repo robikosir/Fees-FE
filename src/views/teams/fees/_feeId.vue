@@ -14,7 +14,7 @@
           {{ option.first_name }} {{ option.last_name }}
         </template>
       </multiselect>
-      <label class="is-invalid" v-show="showPlayerError">
+      <label class="is-invalid-text" v-show="showPlayerError">
         Please select at least one player.
       </label>
     </div>
@@ -28,7 +28,7 @@
         track-by="id"
       >
       </multiselect>
-      <label class="is-invalid" v-show="showFeeError">
+      <label class="is-invalid-text" v-show="showFeeError">
         Please select at least one fee.
       </label>
     </div>
