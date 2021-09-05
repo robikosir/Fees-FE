@@ -1,5 +1,6 @@
 import { auth } from "@/api/auth";
 import { users } from "@/api/users";
+import router from "@/router";
 
 export default {
   namespaced: true,
@@ -50,6 +51,7 @@ export default {
     logout({ commit }) {
       commit("updateAccessToken", "");
       localStorage.removeItem("accessToken");
+      router.push("/login");
     },
   },
 };

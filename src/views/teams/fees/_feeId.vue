@@ -1,10 +1,7 @@
 <template>
   <MainLayout title="Edit Fee">
     <div>
-      {{ fee }}
-    </div>
-    <div>
-      <label class="label">Select player(s)</label>
+      <label class="label">Player</label>
       <multiselect
         v-model="fee.player"
         :options="players"

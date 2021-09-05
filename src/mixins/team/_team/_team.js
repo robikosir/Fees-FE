@@ -1,5 +1,7 @@
 import { teams } from "@/api/teams";
 import baseTeam from "@/mixins/team/_team/baseTeam";
+import { playerFees } from "@/api/playerFees";
+import moment from "moment";
 
 export default {
   mixins: [baseTeam],
@@ -49,6 +51,20 @@ export default {
     },
     createFee() {
       this.$router.push(`/teams/${this.team.id}/fees/create`);
+    },
+    async deleteFee(id) {
+      try {
+        await playerFees.deleteFee(id);
+        this.team.player_fees_team = this.team.player_fees_team.filter(
+          (fee) => fee.id !== id
+        );
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    getTimeFormat(time) {
+      let date = new Date(time);
+      return moment(date).format("Do MMM YYYY");
     },
   },
 };

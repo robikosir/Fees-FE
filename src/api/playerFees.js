@@ -25,4 +25,7 @@ export const playerFees = {
     };
     return client.put(`${route}${id}`, data);
   },
+  deleteFee(id) {
+    return client.delete(`${route}${id}`);
+  },
 };

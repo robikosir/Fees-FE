@@ -1,6 +1,5 @@
 import client from "@/client/client";
 import { store } from "@/store";
-import router from "@/router";
 
 client.interceptors.request.use((config) => {
   let token = store.getters["auth/accessToken"];
@@ -18,7 +17,7 @@ client.interceptors.response.use(
   },
   (error) => {
     if (error.response.status === 401) {
-      router.push("/login");
+      store.dispatch("auth/logout");
     }
     throw error;
   }
