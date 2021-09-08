@@ -21,6 +21,11 @@ export default {
         { key: "time", label: "Time" },
         { key: "actions" },
       ],
+      teamFeeFields: [
+        { key: "name", label: "Name" },
+        { key: "price", label: "Price" },
+        { key: "actions" },
+      ],
     };
   },
   async mounted() {
@@ -48,7 +53,7 @@ export default {
       this.$router.push(`/teams/${this.team.id}/users/invite`);
     },
     addFee() {
-      this.$router.push(`/teams/${this.team.id}/fees/add`);
+      this.$router.push(`/teams/${this.team.id}/player_fees/add`);
     },
     createFee() {
       this.$router.push(`/teams/${this.team.id}/fees/create`);
@@ -70,6 +75,10 @@ export default {
     processToast() {
       if (this.$route.query.toast === "invite-successful") {
         this.$bvToast.show("invite-successful");
+      } else if (this.$route.query.toast === "player-fee") {
+        this.$bvToast.show("player-fee");
+      } else if (this.$route.query.toast === "fee-added") {
+        this.$bvToast.show("fee-added");
       }
     },
   },

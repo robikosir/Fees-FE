@@ -1,26 +1,42 @@
-import loading from "@/mixins/common/loading";
-import { playerFees } from "@/api/playerFees";
-import feeDetail from "@/mixins/team/_team/feeDetail";
-import baseTeam from "@/mixins/team/_team/baseTeam";
+import { required } from "vuelidate/lib/validators";
+import validation from "@/mixins/validation";
+import { fee } from "@/api/fee";
 
 export default {
-  mixins: [loading, feeDetail, baseTeam],
+  mixins: [validation],
   data() {
     return {
-      feeId: "",
-      fee: {},
+      form: {
+        name: "",
+        price: "",
+      },
     };
   },
-  watch: {
-    $route(to) {
-      this.feeId = to.params.fee_id || "";
+  validations: {
+    form: {
+      name: {
+        required,
+      },
+      price: {
+        required,
+      },
     },
   },
-  async mounted() {
-    this.loading = true;
-    this.feeId = this.$route.params.fee_id;
-    let response = await playerFees.getPlayerFee(this.feeId);
-    this.fee = response.data;
-    this.loading = false;
+  methods: {
+    async add() {
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        try {
+          this.form["team"] = this.$route.params.team_id;
+          await fee.addFee(this.form);
+          this.$router.push(
+            `/teams/${this.$route.params.team_id}?toast=fee-added`
+          );
+        } catch (e) {
+          this.serverErrors = e.response.data;
+          this.$v.$touch();
+        }
+      }
+    },
   },
 };

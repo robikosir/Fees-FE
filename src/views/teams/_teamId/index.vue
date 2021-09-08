@@ -8,7 +8,9 @@
           :fields="feeFields"
           :cell-templates="['fee.price', 'time', 'actions']"
           @addAction="addFee"
-          @rowClicked="$router.push(`/teams/${team.id}/fees/${$event.id}`)"
+          @rowClicked="
+            $router.push(`/teams/${team.id}/player_fees/${$event.id}`)
+          "
         >
           <template #cell(fee.price)="data">
             <b>{{ data.item.fee.price }} </b>
@@ -36,13 +38,32 @@
           @addAction="addPlayer"
         />
       </b-tab>
-      <b-tab title="Fees"> {{ team.team_fees }} </b-tab>
+      <b-tab title="Fees">
+        <ActionTable
+          :loading="loading"
+          :items="team.team_fees"
+          :fields="teamFeeFields"
+          @addAction="createFee"
+        />
+      </b-tab>
     </b-tabs>
     <ToastBase
       id="invite-successful"
       variant="success"
       title="Person Invited"
       message="Person has received email and was added to your team!"
+    />
+    <ToastBase
+      id="player-fee"
+      variant="success"
+      title="Fee was added"
+      message="You can find fee(s) below!"
+    />
+    <ToastBase
+      id="fee-added"
+      variant="success"
+      title="Fee was added"
+      message="You can find fee(s) below, under Fees tab!"
     />
   </MainLayout>
 </template>

@@ -47,15 +47,15 @@
 </template>
 
 <script>
-import _fee from "@/mixins/team/fee/_fee";
 import MainLayout from "@/components/layouts/MainLayout";
 import SubmitButton from "@/components/buttons/SubmitButton";
 import ToastBase from "@/components/toasts/ToastBase";
+import _player_fee from "@/mixins/team/fee/_player_fee";
 
 export default {
   name: "_feeId",
   components: { ToastBase, SubmitButton, MainLayout },
-  mixins: [_fee],
+  mixins: [_player_fee],
 };
 </script>
 

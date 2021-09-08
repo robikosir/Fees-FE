@@ -9,6 +9,8 @@ export default {
     return {
       players: [],
       fees: [],
+      selectedPlayers: [],
+      selectedFees: [],
       showPlayerError: false,
       showFeeError: false,
     };

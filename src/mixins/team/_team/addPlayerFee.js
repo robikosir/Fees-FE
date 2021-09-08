@@ -1,8 +1,9 @@
 import { playerFees } from "@/api/playerFees";
 import feeDetail from "@/mixins/team/_team/feeDetail";
+import baseTeam from "@/mixins/team/_team/baseTeam";
 
 export default {
-  mixins: [feeDetail],
+  mixins: [feeDetail, baseTeam],
   data() {
     return {
       feeDate: "",
@@ -22,17 +23,16 @@ export default {
       this.showFeeError = this.selectedFees.length === 0;
       if (!this.showPlayerError && !this.showFeeError) {
         try {
-          let response = await playerFees.savePlayerFees(
+          await playerFees.savePlayerFees(
             this.selectedPlayers.map((player) => player.id),
             this.selectedFees.map((player) => player.id),
             this.teamId,
             this.feeDate
           );
-          console.log(response);
+          this.$router.push(`/teams/${this.teamId}?toast=player-fee`);
         } catch (e) {
           console.log(e);
         }
-        console.log();
       }
     },
   },
