@@ -1,0 +1,5 @@
+- Add My fees tab -> which is default
+- All fees
+- Add total fee to each player
+- Add sum of team fee (paid or not paid)
+- add paid not paid status

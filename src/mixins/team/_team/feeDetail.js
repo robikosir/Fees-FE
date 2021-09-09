@@ -39,5 +39,9 @@ export default {
       );
       this.$bvToast.show("saved");
     },
+    async deleteFee() {
+      await playerFees.deleteFee(this.fee.id);
+      this.$router.push(`/teams/${this.$store.state.team.team.id}`);
+    },
   },
 };

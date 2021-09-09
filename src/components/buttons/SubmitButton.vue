@@ -1,6 +1,6 @@
 <template>
   <BaseButton
-    variant="primary"
+    :variant="variant"
     :button-text="buttonText"
     @submit="$emit('submit')"
   />
@@ -13,6 +13,7 @@ export default {
   components: { BaseButton },
   props: {
     buttonText: { type: String, required: true },
+    variant: { type: String, default: () => "primary" },
   },
 };
 </script>

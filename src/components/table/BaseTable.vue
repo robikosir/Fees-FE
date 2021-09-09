@@ -1,10 +1,14 @@
 <template>
   <b-table
+    v-if="items.length > 0"
     striped
     hover
     :items="items"
     :fields="fields"
     :busy="loading"
+    :tbody-tr-class="rowClass"
+    :filter="filter"
+    sort-icon-left
     thead-class="table-radius"
     @row-clicked="$emit('rowClicked', $event)"
     show-empty
@@ -42,6 +46,8 @@ export default {
     loading: { type: Boolean, required: true },
     headTemplates: { type: Array },
     cellTemplates: { type: Array },
+    rowClass: { type: Function },
+    filter: { type: String },
   },
   methods: {
     toHeadName(column) {

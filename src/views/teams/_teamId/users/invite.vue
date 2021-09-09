@@ -1,5 +1,8 @@
 <template>
   <MainLayout title="Invite User">
+    <template #action>
+      <SubmitButton button-text="Invite" @submit="invite" />
+    </template>
     <EmailInput
       id="email"
       :field="$v.form.email"
@@ -33,7 +36,6 @@
       label="Last name"
       field-name="last name"
     />
-    <SubmitButton button-text="Invite" @submit="invite" />
   </MainLayout>
 </template>
 

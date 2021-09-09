@@ -2,47 +2,65 @@
   <MainLayout :loading="loading" :title="team.name ? team.name : ''">
     <b-tabs content-class="mt-3">
       <b-tab title="Overview" active>
+        <b-form-group class="text-left">
+          <b-input-group>
+            <b-form-input v-model="filter" />
+            <slot></slot>
+          </b-input-group>
+        </b-form-group>
         <ActionTable
           :loading="loading"
           :items="team.player_fees_team"
           :fields="feeFields"
           :cell-templates="['fee.price', 'time', 'actions']"
+          :row-class="rowClass"
+          :filter="filter"
           @addAction="addFee"
           @rowClicked="
             $router.push(`/teams/${team.id}/player_fees/${$event.id}`)
           "
         >
           <template #cell(fee.price)="data">
-            <b>{{ data.item.fee.price }} </b>
+            <b>{{ data.item.fee.price }}&nbsp;</b>
             <small>{{ $store.state.team.currency }}</small>
           </template>
           <template #cell(time)="data">
             {{ getTimeFormat(data.item.time) }}
           </template>
           <template #cell(actions)="data">
-            <b-button
-              variant="danger"
-              size="sm"
-              @click="deleteFee(data.item.id)"
-            >
-              <b-icon icon="trash" />
+            <b-button variant="warning" size="sm" @click="payFee(data.item)">
+              <b-icon icon="cash" />
             </b-button>
           </template>
         </ActionTable>
       </b-tab>
       <b-tab title="Players">
+        <b-form-group class="text-left">
+          <b-input-group>
+            <b-form-input v-model="filter" />
+            <slot></slot>
+          </b-input-group>
+        </b-form-group>
         <ActionTable
           :loading="loading"
           :items="team.players"
           :fields="playerFields"
+          :filter="filter"
           @addAction="addPlayer"
         />
       </b-tab>
       <b-tab title="Fees">
+        <b-form-group class="text-left">
+          <b-input-group>
+            <b-form-input v-model="filter" />
+            <slot></slot>
+          </b-input-group>
+        </b-form-group>
         <ActionTable
           :loading="loading"
           :items="team.team_fees"
           :fields="teamFeeFields"
+          :filter="filter"
           @addAction="createFee"
         />
       </b-tab>
@@ -78,6 +96,16 @@ export default {
   name: "team",
   components: { ToastBase, ActionTable, MainLayout },
   mixins: [_team],
+  data() {
+    return {
+      filter: "",
+    };
+  },
+  methods: {
+    rowClass(item) {
+      return item.is_paid ? "table-success" : "table-danger";
+    },
+  },
 };
 </script>
 

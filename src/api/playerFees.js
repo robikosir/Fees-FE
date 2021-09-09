@@ -28,4 +28,7 @@ export const playerFees = {
   deleteFee(id) {
     return client.delete(`${route}${id}`);
   },
+  payFee(id, data) {
+    return client.patch(`${route}${id}`, data);
+  },
 };

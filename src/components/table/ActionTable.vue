@@ -5,6 +5,8 @@
     :loading="loading"
     :head-templates="['actions', ...headTemplates]"
     :cell-templates="['actions', ...cellTemplates]"
+    :row-class="rowClass"
+    :filter="filter"
     @rowClicked="$emit('rowClicked', $event)"
   >
     <template
@@ -42,6 +44,8 @@ export default {
     headTemplates: { type: Array, default: () => [] },
     cellTemplates: { type: Array, default: () => [] },
     loading: { type: [Boolean] },
+    rowClass: { type: Function },
+    filter: { type: String },
   },
   methods: {
     toHeadName(column) {

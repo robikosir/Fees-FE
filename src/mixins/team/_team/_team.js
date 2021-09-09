@@ -7,23 +7,29 @@ export default {
   mixins: [baseTeam],
   data() {
     return {
-      team: {},
+      team: {
+        name: "",
+        currency: "",
+        players: [],
+        player_fees_team: [],
+        team_fees: [],
+      },
       playerFields: [
         { key: "email", label: "Email" },
-        { key: "first_name", label: "Name" },
+        { key: "first_name", label: "Name", sortable: true },
         { key: "last_name", label: "Surname" },
         { key: "actions" },
       ],
       feeFields: [
-        { key: "player.first_name", label: "Name" },
-        { key: "fee.name", label: "Fee" },
-        { key: "fee.price", label: "Cost" },
-        { key: "time", label: "Time" },
+        { key: "player.first_name", label: "Name", sortable: true },
+        { key: "fee.name", label: "Fee", sortable: true },
+        { key: "fee.price", label: "Cost", sortable: true },
+        { key: "time", label: "Time", sortable: true },
         { key: "actions" },
       ],
       teamFeeFields: [
-        { key: "name", label: "Name" },
-        { key: "price", label: "Price" },
+        { key: "name", label: "Name", sortable: true },
+        { key: "price", label: "Price", sortable: true },
         { key: "actions" },
       ],
     };
@@ -31,6 +37,7 @@ export default {
   async mounted() {
     this.loading = true;
     this.team = await this.getTeam(this.teamId);
+    this.$store.commit("team/updateTeam", this.team);
     this.$store.commit("team/updateCurrency", this.team.currency);
     if (
       this.team.admins.filter(
@@ -68,9 +75,19 @@ export default {
         console.error(e);
       }
     },
+    async payFee(fee) {
+      fee.is_paid = true;
+      try {
+        await playerFees.payFee(fee.id, {
+          is_paid: true,
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    },
     getTimeFormat(time) {
       let date = new Date(time);
-      return moment(date).format("Do MMM YYYY");
+      return moment(date).format("D.M");
     },
     processToast() {
       if (this.$route.query.toast === "invite-successful") {

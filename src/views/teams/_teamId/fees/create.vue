@@ -1,5 +1,8 @@
 <template>
   <MainLayout title="Add fee to the team">
+    <template #action>
+      <SubmitButton button-text="Add fee" @submit="add" />
+    </template>
     <StringInput
       id="name"
       :field="$v.form.name"
@@ -22,7 +25,6 @@
       label="Price"
       field-name="price"
     />
-    <SubmitButton button-text="Add fee" @submit="add" />
   </MainLayout>
 </template>
 
