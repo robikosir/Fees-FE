@@ -15,4 +15,7 @@ export const users = {
   inviteUser(data) {
     return client.post(`${route}invite/`, data);
   },
+  updateSelf(id, data) {
+    return client.patch(`${route}${id}/`, data);
+  },
 };

@@ -10,7 +10,6 @@
               :field="$v.form.firstName"
               :state="validateState($v.form, 'firstName')"
               :server-errors="serverErrors['first_name']"
-              icon="person-fill"
               @update="$v.form.firstName.$model = $event"
               @keyupEnter="register"
               label="First name"
@@ -21,7 +20,6 @@
               :field="$v.form.lastName"
               :state="validateState($v.form, 'lastName')"
               :server-errors="serverErrors['last_name']"
-              icon="person-fill"
               @update="$v.form.lastName.$model = $event"
               @keyupEnter="register"
               label="Last name"
@@ -32,7 +30,6 @@
               :field="$v.form.email"
               :state="validateState($v.form, 'email')"
               :server-errors="serverErrors['email']"
-              icon="envelope-fill"
               @update="$v.form.email.$model = $event"
               @keyupEnter="register"
               label="Email"
@@ -43,7 +40,6 @@
               :field="$v.form.password"
               :state="validateState($v.form, 'password')"
               :server-errors="serverErrors['password']"
-              icon="lock-fill"
               @update="$v.form.password.$model = $event"
               @keyupEnter="register"
               label="Password"
@@ -53,13 +49,25 @@
               id="repeatPassword"
               :field="$v.form.repeatPassword"
               :state="validateState($v.form, 'repeatPassword')"
-              icon="arrow-counterclockwise"
               @update="$v.form.repeatPassword.$model = $event"
               @keyupEnter="register"
               label="Repeat password"
               field-name="repeat password"
             />
-            <SubmitButton button-text="Register" @submit="register" />
+            <div class="text-left mt-2">
+              <label> Phone number </label>
+              <vue-phone-number-input
+                v-model="phoneNumber"
+                @update="update"
+                default-country-code="CZ"
+              />
+            </div>
+            {{ phoneNumberObject }}
+            <SubmitButton
+              class="mt-3"
+              button-text="Register"
+              @submit="register"
+            />
           </b-col>
         </b-row>
       </b-card>

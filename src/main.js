@@ -18,7 +18,10 @@ import Multiselect from "vue-multiselect";
 Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
+import VuePhoneNumberInput from "vue-phone-number-input";
+import "vue-phone-number-input/dist/vue-phone-number-input.css";
 
+Vue.component("vue-phone-number-input", VuePhoneNumberInput);
 Vue.component("multiselect", Multiselect);
 import "vue-multiselect/dist/vue-multiselect.min.css";
 import "@/assets/scss/multiselect.scss";

@@ -4,7 +4,7 @@
       <b-tab title="Overview" active>
         <b-form-group class="text-left">
           <b-input-group>
-            <b-form-input v-model="filter" />
+            <b-form-input v-model="filter" placeholder="Search" />
             <slot></slot>
           </b-input-group>
         </b-form-group>
@@ -37,7 +37,7 @@
       <b-tab title="Players">
         <b-form-group class="text-left">
           <b-input-group>
-            <b-form-input v-model="filter" />
+            <b-form-input v-model="filter" placeholder="Search" />
             <slot></slot>
           </b-input-group>
         </b-form-group>
@@ -52,7 +52,7 @@
       <b-tab title="Fees">
         <b-form-group class="text-left">
           <b-input-group>
-            <b-form-input v-model="filter" />
+            <b-form-input v-model="filter" placeholder="Search" />
             <slot></slot>
           </b-input-group>
         </b-form-group>

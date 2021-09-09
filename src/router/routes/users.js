@@ -8,5 +8,11 @@ export default {
       component: () => import("../../views/users/change-password.vue"),
       beforeEnter: functions.ifAuthenticated,
     },
+    {
+      path: "/user/profile",
+      name: "Profile",
+      component: () => import("../../views/users/profile"),
+      beforeEnter: functions.ifAuthenticated,
+    },
   ],
 };

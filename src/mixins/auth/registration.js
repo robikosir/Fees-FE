@@ -6,6 +6,8 @@ export default {
   mixins: [validation],
   data() {
     return {
+      phoneNumber: "",
+      phoneNumberObject: {},
       form: {
         firstName: "",
         lastName: "",
@@ -46,6 +48,8 @@ export default {
           last_name: this.form.lastName,
           email: this.form.email,
           password: this.form.password,
+          phone_number: this.phoneNumberObject.formattedNumber,
+          country_code: this.phoneNumberObject.countryCode,
         };
         try {
           // check if response is OK
@@ -55,6 +59,9 @@ export default {
           this.$v.$touch();
         }
       }
+    },
+    update(event) {
+      this.phoneNumberObject = event;
     },
   },
 };
