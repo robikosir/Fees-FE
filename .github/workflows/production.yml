@@ -14,8 +14,8 @@ jobs:
       with:
         command: |
           echo 'Connected to server, starting deployment'
-          cd Fees-Fe
-          . ./docker/deploy.sh
+          cd Fees-FE
+          . ./deploy/deploy.sh
         host: ${{ secrets.PRODUCTION_IP }}
         user: fees
         key: ${{ secrets.PRODUCTION_PRIVATE_KEY}}
