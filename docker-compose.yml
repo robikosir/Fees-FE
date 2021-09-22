@@ -5,10 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "80:80"
     container_name: vue-ui
     environment:
-      - VUE_APP_API_URL=http://34.141.81.19/api/v1/
+      - VUE_APP_API_URL=http://34.141.81.19:8081/api/v1/
     volumes:
       - ./my-app:/usr/src/app/my-app
       - /usr/src/app/my-app/node_modules
