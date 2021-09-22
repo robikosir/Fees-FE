@@ -10,3 +10,9 @@ services:
     volumes:
       - ./my-app:/usr/src/app/my-app
       - /usr/src/app/my-app/node_modules
+    networks:
+      - bridge-net
+
+networks:
+  bridge-net:
+    driver: bridge
