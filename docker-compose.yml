@@ -14,6 +14,7 @@ services:
       - /usr/src/app/my-app/node_modules
     networks:
       - bridge-net
+    restart: always
 
 networks:
   bridge-net:
