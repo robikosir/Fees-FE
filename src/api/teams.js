@@ -10,7 +10,7 @@ export const teams = {
     return client.get(route);
   },
   getTeam(teamId) {
-    return client.get(`${route}${teamId}`);
+    return client.get(`${route}${teamId}/`);
   },
   getPlayersAndFees(teamId) {
     return client.get(`${route}${teamId}/get_fees_and_players/`);
