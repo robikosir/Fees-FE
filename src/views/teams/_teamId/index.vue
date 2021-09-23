@@ -12,7 +12,7 @@
           :loading="loading"
           :items="team.player_fees_team"
           :fields="feeFields"
-          :cell-templates="['fee.price', 'time', 'actions']"
+          :cell-templates="['fee.name', 'fee.price', 'time', 'actions']"
           :row-class="rowClass"
           :filter="filter"
           @addAction="addFee"
@@ -20,9 +20,10 @@
             $router.push(`/teams/${team.id}/player_fees/${$event.id}`)
           "
         >
-          <template #cell(fee.price)="data">
-            <b>{{ data.item.fee.price }}&nbsp;</b>
-            <small>{{ $store.state.team.currency }}</small>
+          <template #cell(fee.name)="data">
+            {{ data.item.fee.name }} (<b>{{ data.item.fee.price }}&nbsp;</b>
+            <small>{{ $store.state.team.currency }}</small
+            >)
           </template>
           <template #cell(time)="data">
             {{ getTimeFormat(data.item.time) }}
@@ -46,8 +47,13 @@
           :items="team.players"
           :fields="playerFields"
           :filter="filter"
+          :cell-templates="['first_name']"
           @addAction="addPlayer"
-        />
+        >
+          <template #cell(first_name)="data">
+            {{ data.item.first_name }} {{ data.item.last_name }}
+          </template>
+        </ActionTable>
       </b-tab>
       <b-tab title="Fees">
         <b-form-group class="text-left">

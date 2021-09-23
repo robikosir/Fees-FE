@@ -17,13 +17,11 @@ export default {
       playerFields: [
         { key: "email", label: "Email" },
         { key: "first_name", label: "Name", sortable: true },
-        { key: "last_name", label: "Surname" },
         { key: "actions" },
       ],
       feeFields: [
         { key: "player.first_name", label: "Name", sortable: true },
         { key: "fee.name", label: "Fee", sortable: true },
-        { key: "fee.price", label: "Cost", sortable: true },
         { key: "time", label: "Time", sortable: true },
         { key: "actions" },
       ],
@@ -76,10 +74,10 @@ export default {
       }
     },
     async payFee(fee) {
-      fee.is_paid = true;
+      fee.is_paid = !fee.is_paid;
       try {
         await playerFees.payFee(fee.id, {
-          is_paid: true,
+          is_paid: fee.is_paid,
         });
       } catch (e) {
         console.error(e);
