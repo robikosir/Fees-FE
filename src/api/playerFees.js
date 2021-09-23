@@ -13,7 +13,7 @@ export const playerFees = {
     return client.post(route, data);
   },
   getPlayerFee(id) {
-    return client.get(`${route}${id}`);
+    return client.get(`${route}${id}/`);
   },
   editFee(id, player, fee, team, time) {
     let data = {
@@ -23,12 +23,12 @@ export const playerFees = {
       team: team,
       time: time,
     };
-    return client.put(`${route}${id}`, data);
+    return client.put(`${route}${id}/`, data);
   },
   deleteFee(id) {
-    return client.delete(`${route}${id}`);
+    return client.delete(`${route}${id}/`);
   },
   payFee(id, data) {
-    return client.patch(`${route}${id}`, data);
+    return client.patch(`${route}${id}/`, data);
   },
 };
