@@ -17,18 +17,15 @@ export default {
       playerFields: [
         { key: "email", label: "Email" },
         { key: "first_name", label: "Name", sortable: true },
-        { key: "actions" },
       ],
       feeFields: [
         { key: "player.first_name", label: "Name", sortable: true },
         { key: "fee.name", label: "Fee", sortable: true },
         { key: "time", label: "Time", sortable: true },
-        { key: "actions" },
       ],
       teamFeeFields: [
         { key: "name", label: "Name", sortable: true },
         { key: "price", label: "Price", sortable: true },
-        { key: "actions" },
       ],
     };
   },
@@ -43,6 +40,9 @@ export default {
       ).length === 1
     ) {
       this.$store.commit("auth/updateIsAdmin", true);
+      this.playerFields.push({ key: "actions" });
+      this.feeFields.push({ key: "actions" });
+      this.teamFeeFields.push({ key: "actions" });
     } else {
       this.$store.commit("auth/updateIsAdmin", false);
     }

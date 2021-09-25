@@ -35,6 +35,15 @@
       <label class="label">Time</label>
       <b-form-datepicker v-model="feeDate" class="mb-2"></b-form-datepicker>
     </div>
+    <div class="mt-3">
+      <label class="label">Description</label>
+      <b-form-textarea
+        id="textarea"
+        v-model="description"
+        placeholder="Enter description"
+        rows="5"
+      ></b-form-textarea>
+    </div>
     <SubmitButton button-text="Add Fees" @submit="addFees" class="mt-3" />
   </MainLayout>
 </template>

@@ -13,6 +13,7 @@ export default {
       selectedFees: [],
       showPlayerError: false,
       showFeeError: false,
+      description: "",
     };
   },
   async mounted() {
@@ -35,7 +36,8 @@ export default {
         this.fee.player.id,
         this.fee.fee.id,
         this.fee.team.id,
-        this.fee.time
+        this.fee.time,
+        this.fee.description
       );
       this.$bvToast.show("saved");
     },

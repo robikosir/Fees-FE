@@ -27,7 +27,8 @@ export default {
             this.selectedPlayers.map((player) => player.id),
             this.selectedFees.map((player) => player.id),
             this.teamId,
-            this.feeDate
+            this.feeDate,
+            this.description
           );
           this.$router.push(`/teams/${this.teamId}?toast=player-fee`);
         } catch (e) {

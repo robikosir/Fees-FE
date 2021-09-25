@@ -1,8 +1,18 @@
 <template>
   <MainLayout title="Edit Fee">
     <template #action>
-      <SubmitButton button-text="Save" @submit="save" class="mr-3" />
-      <SubmitButton button-text="Delete" variant="danger" @submit="deleteFee" />
+      <SubmitButton
+        v-if="$store.state.auth.isAdmin"
+        button-text="Save"
+        @submit="save"
+        class="mr-3"
+      />
+      <SubmitButton
+        v-if="$store.state.auth.isAdmin"
+        button-text="Delete"
+        variant="danger"
+        @submit="deleteFee"
+      />
     </template>
     <div>
       <label class="label">Player</label>
@@ -28,6 +38,7 @@
         v-model="fee.fee"
         :options="fees"
         :multiple="false"
+        :disabled="!$store.state.auth.isAdmin"
         :custom-label="feeNameAndPrice"
         track-by="id"
       >
@@ -38,7 +49,21 @@
     </div>
     <div class="mt-3">
       <label class="label">Time</label>
-      <b-form-datepicker v-model="fee.time" class="mb-2"></b-form-datepicker>
+      <b-form-datepicker
+        v-model="fee.time"
+        class="mb-2"
+        :disabled="!$store.state.auth.isAdmin"
+      ></b-form-datepicker>
+    </div>
+    <div class="mt-3">
+      <label class="label">Description</label>
+      <b-form-textarea
+        id="textarea"
+        v-model="fee.description"
+        placeholder="Enter description"
+        :disabled="!$store.state.auth.isAdmin"
+        rows="5"
+      ></b-form-textarea>
     </div>
     <ToastBase
       id="saved"
