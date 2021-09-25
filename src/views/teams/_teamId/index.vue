@@ -2,38 +2,53 @@
   <MainLayout :loading="loading" :title="team.name ? team.name : ''">
     <b-tabs content-class="mt-3">
       <b-tab title="Overview" active>
-        <b-form-group class="text-left">
-          <b-input-group>
-            <b-form-input v-model="filter" placeholder="Search" />
-            <slot></slot>
-          </b-input-group>
-        </b-form-group>
-        <ActionTable
-          :loading="loading"
-          :items="team.player_fees_team"
-          :fields="feeFields"
-          :cell-templates="['fee.name', 'fee.price', 'time', 'actions']"
-          :row-class="rowClass"
-          :filter="filter"
-          @addAction="addFee"
-          @rowClicked="
-            $router.push(`/teams/${team.id}/player_fees/${$event.id}`)
-          "
+        <div
+          class="d-flex justify-content-center"
+          v-if="team.player_fees_team.length === 0"
         >
-          <template #cell(fee.name)="data">
-            {{ data.item.fee.name }} (<b>{{ data.item.fee.price }}&nbsp;</b>
-            <small>{{ $store.state.team.currency }}</small
-            >)
-          </template>
-          <template #cell(time)="data">
-            {{ getTimeFormat(data.item.time) }}
-          </template>
-          <template #cell(actions)="data">
-            <b-button variant="warning" size="sm" @click="payFee(data.item)">
-              <b-icon icon="cash" />
-            </b-button>
-          </template>
-        </ActionTable>
+          <b-button variant="success" size="sm" @click="addFee">
+            <b-icon icon="plus" /> Add Fee
+          </b-button>
+        </div>
+        <div v-else>
+          <b-form-group class="text-left">
+            <b-input-group>
+              <b-form-input v-model="filter" placeholder="Search" />
+              <slot></slot>
+            </b-input-group>
+          </b-form-group>
+          <ActionTable
+            :loading="loading"
+            :items="team.player_fees_team"
+            :fields="feeFields"
+            :cell-templates="['fee.name', 'fee.price', 'time', 'actions']"
+            :row-class="rowClass"
+            :filter="filter"
+            @addAction="addFee"
+            @rowClicked="
+              $router.push(`/teams/${team.id}/player_fees/${$event.id}`)
+            "
+          >
+            <template #cell(fee.name)="data">
+              {{ data.item.fee.name }} (<b>{{ data.item.fee.price }}&nbsp;</b>
+              <small>{{ $store.state.team.currency }}</small
+              >)
+            </template>
+            <template #cell(time)="data">
+              {{ getTimeFormat(data.item.time) }}
+            </template>
+            <template #cell(actions)="data">
+              <b-button
+                v-if="$store.state.auth.isAdmin"
+                variant="warning"
+                size="sm"
+                @click="payFee(data.item)"
+              >
+                <b-icon icon="cash" />
+              </b-button>
+            </template>
+          </ActionTable>
+        </div>
       </b-tab>
       <b-tab title="Players">
         <b-form-group class="text-left">

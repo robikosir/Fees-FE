@@ -18,9 +18,6 @@
         <b-spinner class="align-middle"></b-spinner>
       </div>
     </template>
-    <template #empty="">
-      <slot name="empty-state" />
-    </template>
     <template
       v-for="column in headTemplates"
       v-slot:[toHeadName(column)]="props"
