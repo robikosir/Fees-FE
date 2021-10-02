@@ -15,6 +15,12 @@ export default {
       beforeEnter: functions.ifAuthenticated,
     },
     {
+      path: "/teams/:team_id/pay-all",
+      name: "PayAll",
+      component: () => import("../../views/teams/_teamId/pay-all"),
+      beforeEnter: functions.ifAuthenticated,
+    },
+    {
       path: "/teams/:team_id/player_fees/create",
       name: "TeamCreate",
       component: () => import("../../views/teams/_teamId/player_fees/create"),

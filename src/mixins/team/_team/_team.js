@@ -63,6 +63,9 @@ export default {
     createFee() {
       this.$router.push(`/teams/${this.team.id}/fees/create`);
     },
+    payAll() {
+      this.$router.push(`/teams/${this.team.id}/pay-all`);
+    },
     async deleteFee(id) {
       try {
         await playerFees.deleteFee(id);

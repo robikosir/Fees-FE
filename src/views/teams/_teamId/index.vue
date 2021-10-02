@@ -1,5 +1,17 @@
 <template>
   <MainLayout :loading="loading" :title="team.name ? team.name : ''">
+    <template
+      v-if="
+        team.player_fees_team.filter(
+          (fee) => fee.player.email === this.$store.state.auth.user.email
+        ).length > 0
+      "
+      #action
+    >
+      <b-button variant="success" size="sm" @click="payAll()">
+        <b-icon icon="cash" class="mr-1" /> <b>Pay all</b>
+      </b-button>
+    </template>
     <b-tabs content-class="mt-3">
       <b-tab title="Overview" active>
         <b-form-group class="text-left">
