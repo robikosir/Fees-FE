@@ -1,6 +1,5 @@
 <template>
   <b-table
-    v-if="items.length > 0"
     striped
     hover
     :items="items"
@@ -13,11 +12,9 @@
     @row-clicked="$emit('rowClicked', $event)"
     show-empty
   >
-    <template #table-busy>
-      <div class="text-center text-danger my-2">
-        <b-spinner class="align-middle"></b-spinner>
-      </div>
-    </template>
+    <template #empty="">
+      <div class="text-center">You can add by click plus button</div></template
+    >
     <template
       v-for="column in headTemplates"
       v-slot:[toHeadName(column)]="props"
