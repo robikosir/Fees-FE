@@ -40,6 +40,43 @@
           </template>
         </ActionTable>
       </b-tab>
+      <b-tab title="My Fees">
+        <ActionTable
+          :loading="loading"
+          :items="
+            team.player_fees_team.filter(
+              (fee) => fee.player.email === this.$store.state.auth.user.email
+            )
+          "
+          :fields="feeFields"
+          :cell-templates="['fee.name', 'fee.price', 'time', 'actions']"
+          :row-class="rowClass"
+          :filter="filter"
+          @addAction="addFee"
+          @rowClicked="
+            $router.push(`/teams/${team.id}/player_fees/${$event.id}`)
+          "
+        >
+          <template #cell(fee.name)="data">
+            {{ data.item.fee.name }} (<b>{{ data.item.fee.price }}&nbsp;</b>
+            <small>{{ $store.state.team.currency }}</small
+            >)
+          </template>
+          <template #cell(time)="data">
+            {{ getTimeFormat(data.item.time) }}
+          </template>
+          <template #cell(actions)="data">
+            <b-button
+              v-if="$store.state.auth.isAdmin"
+              variant="warning"
+              size="sm"
+              @click="payFee(data.item)"
+            >
+              <b-icon icon="cash" />
+            </b-button>
+          </template>
+        </ActionTable>
+      </b-tab>
       <b-tab title="Players">
         <b-form-group class="text-left">
           <b-input-group>
@@ -114,7 +151,7 @@ export default {
   },
   methods: {
     rowClass(item) {
-      if (item) {
+      if (item && this.$store.state.auth.isAdmin) {
         return item.is_paid ? "table-success" : "table-danger";
       }
     },
