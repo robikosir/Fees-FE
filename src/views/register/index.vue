@@ -62,7 +62,6 @@
                 default-country-code="CZ"
               />
             </div>
-            {{ phoneNumberObject }}
             <SubmitButton
               class="mt-3"
               button-text="Register"
