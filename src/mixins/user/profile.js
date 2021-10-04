@@ -34,7 +34,7 @@ export default {
     this.form.first_name = this.$store.state.auth.user.first_name;
     this.form.last_name = this.$store.state.auth.user.last_name;
     this.form.email = this.$store.state.auth.user.email;
-    this.phone_number = "+38631687121";
+    this.phone_number = this.$store.state.auth.user.phone_number;
   },
   methods: {
     async submit() {
