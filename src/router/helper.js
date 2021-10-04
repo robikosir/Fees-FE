@@ -8,4 +8,11 @@ export default {
     }
     next("/login");
   },
+  ifAdmin(to, from, next) {
+    if (store.getters["auth/isAuthenticated"] && store.state.auth.isAdmin) {
+      next();
+      return;
+    }
+    next(from.path);
+  },
 };

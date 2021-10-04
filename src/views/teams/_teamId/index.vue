@@ -33,7 +33,9 @@
           "
         >
           <template #cell(fee.name)="data">
-            {{ data.item.fee.name }} (<b>{{ data.item.fee.price }}&nbsp;</b>
+            {{ data.item.id }} {{ data.item.fee.name }} (<b
+              >{{ data.item.fee.price }}&nbsp;</b
+            >
             <small>{{ $store.state.team.currency }}</small
             >)
           </template>

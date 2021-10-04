@@ -15,6 +15,12 @@ export default {
       beforeEnter: functions.ifAuthenticated,
     },
     {
+      path: "/teams/:team_id/admin",
+      name: "Admin",
+      component: () => import("../../views/teams/_teamId/admin/index"),
+      beforeEnter: functions.ifAdmin,
+    },
+    {
       path: "/teams/:team_id/pay-all",
       name: "PayAll",
       component: () => import("../../views/teams/_teamId/pay-all"),

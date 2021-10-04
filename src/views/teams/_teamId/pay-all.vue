@@ -33,9 +33,9 @@ export default {
         (sum, player_fee) => sum + player_fee.fee.price,
         0
       );
-      let fees = playerFees.map((playerFee) => playerFee.fee.name).join(", ");
+      let fees = playerFees.map((playerFee) => playerFee.id).join(", ");
       let message = `Player: ${this.$store.state.auth.user.first_name} ${this.$store.state.auth.user.last_name} \n Fees: ${fees}`;
-      return `${QRPlatba.API_ENDPOINT}?accountNumber=222885&bankCode=5500&amount=${amount}&message=${message}&currency=${this.$store.state.team.currency}`;
+      return `${QRPlatba.API_ENDPOINT}?accountPrefix=${this.$store.state.team.team.account_prefix}&accountNumber=${this.$store.state.team.team.account_number}&bankCode=${this.$store.state.team.team.bank_code}&amount=${amount}&message=${message}&currency=${this.$store.state.team.currency}`;
     },
   },
 };

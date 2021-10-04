@@ -15,4 +15,7 @@ export const teams = {
   getPlayersAndFees(teamId) {
     return client.get(`${route}${teamId}/get_fees_and_players/`);
   },
+  patchTeam(id, data) {
+    return client.patch(`${route}${id}/`, data);
+  },
 };

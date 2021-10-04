@@ -8,6 +8,11 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav v-if="isAuthenticated()">
         <b-nav-item @click="$router.push('/')">My Teams</b-nav-item>
+        <b-nav-item
+          v-if="$route.params.team_id && $store.state.auth.isAdmin"
+          @click="$router.push(`/teams/${$route.params.team_id}/admin`)"
+          >Admin page</b-nav-item
+        >
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
