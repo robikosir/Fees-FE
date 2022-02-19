@@ -1,9 +1,9 @@
 #!/bin/bash
-git checkout master
+git checkout prod
 echo '---------- Git checkout master complete ----------'
 git fetch --all
 echo '---------- Git fetch complete ----------'
-git reset --hard origin/master
+git reset --hard origin/prod
 echo '---------- Git reset master complete ----------'
 echo '---------- Docker compose build started ----------'
 sudo docker-compose build
