@@ -3,6 +3,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN node -v
 RUN npm -v
+RUN npm config delete proxy
+RUN npm config delete https-proxy
+RUN npm set registry https://registry.npmjs.org/
 RUN npm install
 COPY . .
 RUN npm run build
