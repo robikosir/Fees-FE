@@ -145,6 +145,12 @@
       title="Fee was added"
       message="You can find fee(s) below, under Fees tab!"
     />
+    <ToastBase
+      id="already-in-team"
+      variant="danger"
+      title="Player was not added"
+      message="Player with this email is already in team!"
+    />
   </MainLayout>
 </template>
 

@@ -35,6 +35,11 @@ export default {
           );
         } catch (e) {
           this.serverErrors = e.response.data;
+          if (e.response.status === 409) {
+            this.$router.push(
+              `/teams/${this.$route.params.team_id}?toast=already-in-team`
+            );
+          }
           this.$v.$touch();
         }
       }

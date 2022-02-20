@@ -97,6 +97,8 @@ export default {
         this.$bvToast.show("player-fee");
       } else if (this.$route.query.toast === "fee-added") {
         this.$bvToast.show("fee-added");
+      } else if (this.$route.query.toast === "already-in-team") {
+        this.$bvToast.show("already-in-team");
       }
     },
   },
