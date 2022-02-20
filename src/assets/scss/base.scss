@@ -41,3 +41,9 @@ h4 {
 .form-control {
   box-shadow: none;
 }
+
+@media (max-width: 702px) {
+  html {
+    font-size: 11px;
+  }
+}
