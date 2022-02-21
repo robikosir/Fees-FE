@@ -1,5 +1,11 @@
 @import "variables";
 
+@media (max-width: 702px) {
+  .multiselect {
+    font-size: 11px;
+  }
+}
+
 .multiselect__option--highlight {
   background: $fee_secondary;
   outline: none;
