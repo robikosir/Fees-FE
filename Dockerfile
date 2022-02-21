@@ -3,7 +3,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN node -v
 RUN npm -v
-run npm cache clean -f
 RUN npm install --verbose
 COPY . .
 RUN npm run build
