@@ -3,6 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN node -v
 RUN npm -v
+RUN npm install -g @vue/cli --verbose
 RUN npm install --production --verbose
 COPY . .
 RUN npm run build
