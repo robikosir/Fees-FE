@@ -8,6 +8,7 @@
         :multiple="true"
         :custom-label="playerName"
         track-by="id"
+        selectLabel=""
       >
         <template slot="singleLabel" slot-scope="{ option }">
           {{ option.first_name }} {{ option.last_name }}
@@ -25,6 +26,7 @@
         :multiple="true"
         :custom-label="feeNameAndPrice"
         track-by="id"
+        selectLabel=""
       >
       </multiselect>
       <label class="is-invalid-text" v-show="showFeeError">

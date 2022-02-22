@@ -23,6 +23,7 @@
         disabled="true"
         :custom-label="playerName"
         track-by="id"
+        selectLabel=""
       >
         <template slot="singleLabel" slot-scope="{ option }">
           {{ option.first_name }} {{ option.last_name }}
@@ -41,6 +42,7 @@
         :disabled="!$store.state.auth.isAdmin"
         :custom-label="feeNameAndPrice"
         track-by="id"
+        selectLabel=""
       >
       </multiselect>
       <label class="is-invalid-text" v-show="showFeeError">

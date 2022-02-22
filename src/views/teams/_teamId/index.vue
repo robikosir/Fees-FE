@@ -13,7 +13,7 @@
       </b-button>
     </template>
     <b-tabs content-class="mt-3">
-      <b-tab title="Overview" active>
+      <b-tab title="Overview" :active="$store.state.auth.isAdmin">
         <b-form-group class="text-left">
           <b-input-group>
             <b-form-input v-model="filter" placeholder="Search" />
@@ -54,7 +54,7 @@
           </template>
         </ActionTable>
       </b-tab>
-      <b-tab title="My Fees">
+      <b-tab title="My Fees" :active="!$store.state.auth.isAdmin">
         <ActionTable
           :loading="loading"
           :items="
