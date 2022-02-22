@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo su
 git checkout prod
 echo '---------- Git checkout master complete ----------'
 git fetch --all
