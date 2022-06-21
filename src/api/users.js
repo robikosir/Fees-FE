@@ -12,10 +12,13 @@ export const users = {
   getSelf() {
     return client.get(`${route}get_self/`);
   },
+  getUser(user_id) {
+    return client.get(`${route}${user_id}/`);
+  },
   inviteUser(data) {
     return client.post(`${route}invite/`, data);
   },
-  updateSelf(id, data) {
+  updateUser(id, data) {
     return client.patch(`${route}${id}/`, data);
   },
 };

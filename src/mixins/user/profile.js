@@ -1,9 +1,9 @@
 import { required } from "vuelidate/lib/validators";
 import validation from "@/mixins/validation";
-import { users } from "@/api/users";
+import methods from "@/mixins/user/methods";
 
 export default {
-  mixins: [validation],
+  mixins: [validation, methods],
   data() {
     return {
       phone_number: "",
@@ -41,11 +41,7 @@ export default {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         try {
-          let response = await users.updateSelf(
-            this.$store.state.auth.user.id,
-            this.form
-          );
-          this.$store.commit("auth/updateUser", response.data);
+          await this.updateUser(this.$store.state.auth.user.id, this.form);
           this.$bvToast.show("profile-saved");
         } catch (e) {
           this.serverErrors = e.response.data;
