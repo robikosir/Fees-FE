@@ -1,5 +1,6 @@
 <template>
   <MainLayout :loading="loading" :title="team.name ? team.name : ''">
+    {{ playerRowClass() }}
     <template
       v-if="
         team.player_fees_team.filter(
@@ -113,7 +114,9 @@
           :fields="playerFields"
           :filter="filter"
           :cell-templates="['first_name']"
+          :row-class="playerRowClass"
           @addAction="addPlayer"
+          @rowClicked="playerRowClicked($event)"
         >
           <template #cell(first_name)="data">
             {{ data.item.first_name }} {{ data.item.last_name }}
@@ -182,6 +185,16 @@ export default {
     rowClass(item) {
       if (item && this.$store.state.auth.isAdmin) {
         return item.is_paid ? "table-success" : "table-danger";
+      }
+    },
+    playerRowClass() {
+      if (!this.$store.state.auth.isAdmin) {
+        return "no_pointer";
+      }
+    },
+    playerRowClicked(event) {
+      if (this.$store.state.auth.isAdmin) {
+        this.$router.push(`/teams/${this.team.id}/player/${event.id}`);
       }
     },
   },

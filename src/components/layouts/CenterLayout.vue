@@ -1,10 +1,23 @@
 <template>
   <div class="h-100 wrapper">
     <b-container
-      class="h-100 d-flex flex-column text-lg-left text-center pl-2 pr-2 pl-md-0 pr-md-0"
+      class="
+        h-100
+        d-flex
+        flex-column
+        text-lg-left text-center
+        pl-2
+        pr-2
+        pl-md-0
+        pr-md-0
+      "
     >
       <b-row
-        class="justify-content-center align-content-center mt-lg-auto mt-md-5 mt-3"
+        class="
+          justify-content-center
+          align-content-center
+          mt-lg-auto mt-md-5 mt-3
+        "
       >
         <b-col xl="9" lg="11" md="12">
           <slot name="content" />

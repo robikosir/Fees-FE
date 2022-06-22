@@ -1,9 +1,8 @@
 import { required } from "vuelidate/lib/validators";
 import validation from "@/mixins/validation";
-import methods from "@/mixins/user/methods";
 
 export default {
-  mixins: [validation, methods],
+  mixins: [validation],
   data() {
     return {
       phone_number: "",
