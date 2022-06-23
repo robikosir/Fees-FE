@@ -59,7 +59,7 @@ export default {
     {
       path: "/teams/:team_id/player/:player_id",
       name: "EditPlayer",
-      component: () => import("../../views/teams/_teamId/users/Edit"),
+      component: () => import("../../views/teams/_teamId/users/_playerId/edit"),
       beforeEnter: functions.ifAuthenticated,
     },
   ],
