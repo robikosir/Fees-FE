@@ -21,6 +21,7 @@
             <slot></slot>
           </b-input-group>
         </b-form-group>
+        <PaidFees :fees="team.player_fees_team" />
         <ActionTable
           :loading="loading"
           :items="team.player_fees_team"
@@ -65,6 +66,13 @@
         </ActionTable>
       </b-tab>
       <b-tab title="My Fees" :active="!$store.state.auth.isAdmin">
+        <PaidFees
+          :fees="
+            team.player_fees_team.filter(
+              (fee) => fee.player.email === this.$store.state.auth.user.email
+            )
+          "
+        />
         <ActionTable
           :loading="loading"
           :items="
@@ -171,11 +179,13 @@ import _team from "@/mixins/team/_team/_team";
 import MainLayout from "@/components/layouts/MainLayout";
 import ActionTable from "@/components/table/ActionTable";
 import ToastBase from "@/components/toasts/ToastBase";
+import feeCalculation from "@/mixins/team/_team/feeCalculation";
+import PaidFees from "@/components/PaidFees";
 
 export default {
   name: "team",
-  components: { ToastBase, ActionTable, MainLayout },
-  mixins: [_team],
+  components: { PaidFees, ToastBase, ActionTable, MainLayout },
+  mixins: [_team, feeCalculation],
   data() {
     return {
       filter: "",

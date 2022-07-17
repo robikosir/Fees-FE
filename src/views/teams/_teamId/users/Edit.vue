@@ -108,10 +108,12 @@ export default {
   },
   methods: {
     async submit() {
+      console.log(this.form);
+      debugger;
       this.$v.$touch();
       if (!this.$v.$invalid) {
         try {
-          await this.updateUser(this.$route.params.player_id, this.form);
+          await users.updateUser(this.$route.params.player_id, this.form);
           this.$bvToast.show("profile-saved");
         } catch (e) {
           this.serverErrors = e.response.data;
