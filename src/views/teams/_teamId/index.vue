@@ -65,21 +65,20 @@
           </template>
         </ActionTable>
       </b-tab>
-      <b-tab title="My Fees" :active="!$store.state.auth.isAdmin">
-        <PaidFees
-          :fees="
-            team.player_fees_team.filter(
-              (fee) => fee.player.email === this.$store.state.auth.user.email
-            )
-          "
-        />
+      <b-tab :active="!$store.state.auth.isAdmin">
+        <template #title>
+          My fees
+          <span v-if="countNotPaidFees(playerFees) > 0">
+            <b-icon
+              class="ml-1"
+              icon="exclamation-circle-fill"
+              variant="danger"
+          /></span>
+        </template>
+        <PaidFees :fees="playerFees" />
         <ActionTable
           :loading="loading"
-          :items="
-            team.player_fees_team.filter(
-              (fee) => fee.player.email === this.$store.state.auth.user.email
-            )
-          "
+          :items="playerFees"
           :fields="feeFields"
           :cell-templates="['fee.name', 'fee.price', 'time', 'actions']"
           :row-class="rowClass"
@@ -190,6 +189,13 @@ export default {
     return {
       filter: "",
     };
+  },
+  computed: {
+    playerFees() {
+      return this.team.player_fees_team.filter(
+        (fee) => fee.player.email === this.$store.state.auth.user.email
+      );
+    },
   },
   methods: {
     rowClass(item) {
