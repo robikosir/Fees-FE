@@ -1,6 +1,5 @@
 <template>
   <MainLayout :loading="loading" :title="team.name ? team.name : ''">
-    {{ playerRowClass() }}
     <template
       v-if="
         team.player_fees_team.filter(
@@ -108,7 +107,7 @@
           </template>
         </ActionTable>
       </b-tab>
-      <b-tab title="Players">
+      <b-tab v-if="$store.state.auth.isAdmin" title="Players">
         <b-form-group class="text-left">
           <b-input-group>
             <b-form-input v-model="filter" placeholder="Search" />
@@ -130,7 +129,7 @@
           </template>
         </ActionTable>
       </b-tab>
-      <b-tab title="Fees">
+      <b-tab v-if="$store.state.auth.isAdmin" title="Fees">
         <b-form-group class="text-left">
           <b-input-group>
             <b-form-input v-model="filter" placeholder="Search" />
