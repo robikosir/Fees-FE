@@ -33,7 +33,7 @@
           field-name="account prefix"
         />
         <SubmitButton
-          button-text="Change team admin stuff :)"
+          button-text="Change team admin stuff"
           @submit="changeBankAccount"
         />
       </b-col>
