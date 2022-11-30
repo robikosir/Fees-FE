@@ -2,7 +2,7 @@
   <CenterLayout>
     <template v-slot:content>
       <b-card class="text-center">
-        <h1><b>Login</b></h1>
+        <h1><b>Login </b></h1>
         <b-row>
           <b-col cols="12">
             <EmailInput
