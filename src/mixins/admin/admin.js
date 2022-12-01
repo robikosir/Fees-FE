@@ -22,7 +22,6 @@ export default {
         required,
       },
       account_prefix: {
-        required,
       },
     },
   },
