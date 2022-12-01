@@ -21,8 +21,7 @@ export default {
       bank_code: {
         required,
       },
-      account_prefix: {
-      },
+      account_prefix: {},
     },
   },
   mounted() {
