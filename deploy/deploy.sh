@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo echo '---------- Git checkout prod started ----------'
 git checkout prod
 sudo echo '---------- Git checkout master complete ----------'
 git fetch --all
